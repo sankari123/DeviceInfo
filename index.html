@@ -1240,7 +1240,11 @@ var floater = 0;
 	document.getElementById('xPort').innerHTML='' ;
 	//document.getElementById("xPort").innerHTML='';
 	 
-		
+		for(var ippp = 0; ippp < events.length; ippp++)
+		    {
+		//    alert(events[ippp][8] ;
+		    
+		    }
 	for (var i = 0; i < events.length; i++) {
 	
 	if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
@@ -1344,12 +1348,14 @@ theevent+="<tr ><td rowspan=3>"+events[i][5]+" at "+jj+"</td><td >"+events[i][6]
 	}
 	if (theevent == "") 
 	{
+		
 		document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
 		theevent= 'No events to show...';
 	    //    document.forms.eventform.eventlist.value = 'No events to show.';
 		
 	}
+	alert(theevent);
 	 document.getElementById('dl_btn1').innerHTML=theevent;
 	 document.getElementById('xPort').innerHTML=theevent+"</table>";
 	 
@@ -2322,19 +2328,23 @@ var catSel;
 if(eVal=='1' || eVal==1)
 {
 	catSel='Concert';
-}else if(eVal=='2' || eVal==2)
+}
+else if(eVal=='2' || eVal==2)
 {
 	catSel='Dance';
-}else if(eVal=='3' || eVal==3)
+}
+else if(eVal=='3' || eVal==3)
 {
 	catSel='Drama';
-}else if(eVal=='4' || eVal==4)
+}
+else if(eVal=='4' || eVal==4)
 {
 catSel='Lec-dem';
-}else if(eVal=='5' || eVal==5)
+}
+else if(eVal=='5' || eVal==5)
 {
 catSel='Harikatha';
-}else if(eVal=='6' || eVal==6)
+else if(eVal=='6' || eVal==6)
 {
 catSel='Meetup';
 	//alert(catSel.length);

@@ -77,6 +77,12 @@
   <access origin="mailto:*" launch-external="yes" />
   <access origin="*" subdomains="true" />
   <plugin name="cordova-plugin-whitelist" spec="1" />
+   <plugin name="cordova-android-play-services-gradle-release" spec="1.4.2">
+        <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
+    </plugin>
+    <plugin name="cordova-android-support-gradle-release" spec="1.4.3">
+        <variable name="ANDROID_SUPPORT_VERSION" value="27.1.1" />
+    </plugin>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

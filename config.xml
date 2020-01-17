@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.1.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.0.0">
   <name>DeviceInfo</name>
   <description>DeviceInfo</description>
   <author href="http://phonegap.com" email="sivasankari.appcorridor@gmail.com">Sivasankari</author>

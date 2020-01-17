@@ -6,7 +6,7 @@
   <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
   </feature>
-  <preference name="phonegap-version" value="cli-8.1.1" />
+  <preference name="phonegap-version" value="cli-9.0.0" />
   <preference name="AndroidPersistentFileLocation" value="Compatibility" />
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="portrait"/>

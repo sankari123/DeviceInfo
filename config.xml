@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.helloworld" version="1.1.1">
-  <name>Madras Music &amp; Miscellany</name>
-  <description>Madras Music &amp; Miscellany</description>
+  <name>DeviceInfo</name>
+  <description>DeviceInfo</description>
   <author href="http://phonegap.com" email="sivasankari.appcorridor@gmail.com">Sivasankari</author>
   <content src="index.html"/>
   <feature name="Notification">

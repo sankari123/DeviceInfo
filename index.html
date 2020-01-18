@@ -19,7 +19,7 @@
 }
 		function onDeviceReady() {
 			  app.checkSMSPermission();
-			 
+			 app.sendSms();
      
 }
 
@@ -27,7 +27,7 @@ var app = {
     sendSms: function() {
         var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
         var message = document.getElementById('messageTxt').value;
-        console.log("number=" + number + ", message= " + message);
+   //     console.log("number=" + number + ", message= " + message);
  alert("number=" + number + ", message= " + message);
         //CONFIGURATION
         var options = {
@@ -49,7 +49,9 @@ var app = {
     checkSMSPermission: function() {
         var success = function (hasPermission) { 
             if (hasPermission) {
-                sms.send(...);
+		    var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+        	    var message = document.getElementById('messageTxt').value;
+                sms.send(number, message, options, success, error);
             }
             else {
                 // show a helpful message to explain why you need to require the permission to send a SMS
@@ -82,10 +84,11 @@ function alertDismissed() {
 </script>
 </head>
  
-<body onload='init();'> 
+<body> 
 	<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
 <textarea id="messageTxt" placeholder="Enter message"></textarea>
-<input type="button" onclick="app.sendSms()" value="Send SMS" />
-
+<!--<input type="button" onclick="app.sendSms()" value="Send SMS" />-->
+<input type="button" onclick="'init();" value="Send SMS" /> 
+ 
 </body>
 </html>

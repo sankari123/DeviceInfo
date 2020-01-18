@@ -6,10 +6,7 @@
 <script type="text/javascript" src="cordova.js"></script>
 	 
 	<link class="jsbin" href="css/jquery-ui.css" rel="stylesheet" type="text/css"></link>
-<link rel="stylesheet" href="css/styles.css"></link>
-<link rel="stylesheet" href="css/slide-and-swipe-menu.css"></link>
- 
- 
+
 <script class="jsbin" src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src = "js/jquery-ui.js"></script>
@@ -17,8 +14,8 @@
      
 	<script>
 		function onDeviceReady() {
-			 window.plugins.sim.hasReadPermission(successCallback, errorCallback);
-			  window.plugins.sim.requestReadPermission(successCallback, errorCallback);
+			  hasReadPermission();
+			  requestReadPermission();
     window.plugins.sim.getSimInfo(successCallback, errorCallback);
 }
 

@@ -8,7 +8,7 @@
   </feature>
   <preference name="phonegap-version" value="cli-9.0.0" />
   <preference name="AndroidPersistentFileLocation" value="Compatibility" />
- 
+  <preference name="permissions" value="none"/> 
   <preference name="orientation" value="portrait"/>
   <preference name="target-device" value="universal"/>
   <preference name="fullscreen" value="false"/>
@@ -29,6 +29,7 @@
   <preference name="BackupWebStorage" value="local" />
 	 <plugin name="cordova-plugin-sim"/>
 	 <plugin name="cordova-plugin-android-permissions" />
+	 
 	 <plugin name="cordova-plugin-x-socialsharing" spec="5.4.0" />
 	<plugin name="cordova-plugin-battery-status" spec="~1.2.4" />
         <plugin name="cordova-plugin-camera" spec="~2.4.1" />

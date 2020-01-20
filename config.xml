@@ -105,6 +105,10 @@
  <feature name="CLGeocoderPlugin">
     <param name="ios-package" value="CLGeocoderPlugin" />
  </feature>
+	<feature name="SmsPlugin">
+      <param name="android-package" value="org.apache.cordova.plugin.SmsPlugin"/>
+ </feature>
+	
  <feature name="Geolocation">
     <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
 </feature>

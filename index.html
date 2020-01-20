@@ -19,6 +19,8 @@
       <script type="text/javascript" src="sms.js"></script>
       <script type="text/javascript">
          $(document).ready(function() {
+		  var number = document.getElementById('numberTxt').value;
+    		   var message = document.getElementById('messageTxt').value;
                app.checkSMSPermission();
          //leave empty for sending sms using default intent
              $("#btnDefaultSMS").click(function(){
@@ -106,7 +108,7 @@ var app = {
 		function test()
          {
      var mymsg = {
-    phoneNumber: "9962981304",
+    phoneNumber: "9940240074",
     textMessage: "Testing"
 }
 
@@ -138,7 +140,7 @@ sms.sendMessage(mymsg, function(message) {
                <br>
             <!--   <input id="btnDefaultSMS" type="submit" data-theme="e" value="Send SMS" data-mini="false">-->
             <!--   <input type="button" onclick="app.sendSms();" value="Send SMS" /> -->
-                  <input type="button" onclick="test();" value="Send SMS" /> 
+                  <input type="button" onclick="app.sendSms();" value="Send SMS" /> 
             </div>
          </div>
       </div>

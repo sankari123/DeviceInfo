@@ -19,7 +19,7 @@
       <script type="text/javascript" src="smsplugin.js"></script>
       <script type="text/javascript">
          $(document).ready(function() {
-
+               app.checkSMSPermission();
          //leave empty for sending sms using default intent
              $("#btnDefaultSMS").click(function(){
 
@@ -36,6 +36,91 @@
              }); 
          });
 
+         
+         var app = {
+
+   sendSms: function() {
+
+   var number = document.getElementById('numberTxt').value;
+
+   var message = document.getElementById('messageTxt').value;
+
+   console.log("number=" + number + ", message= " + message);
+
+
+   //CONFIGURATION
+
+   var options = {
+
+   replaceLineBreaks: false,
+
+   android: {
+
+   intent: 'INTENT'
+
+  }
+
+  };
+
+
+   var success = function () { alert('Message sent successfully'); };
+
+   var error = function (e) { alert('Message Failed:' + e); };
+
+   sms.send(number, message, options, success, error);
+
+  }
+
+};
+		
+
+var app = {
+    checkSMSPermission: function() {
+        var success = function (hasPermission) { 
+            if (hasPermission) {
+                sms.send(number, message, intent, success, error);
+            }
+            else {
+                // show a helpful message to explain why you need to require the permission to send a SMS
+                // read http://developer.android.com/training/permissions/requesting.html#explain for more best practices
+            }
+        };
+        var error = function (e) { alert('Something went wrong:' + e); };
+        sms.hasPermission(success, error);
+    },
+    requestSMSPermission: function() {
+        var success = function (hasPermission) { 
+            if (!hasPermission) {
+                sms.requestPermission(function() {
+                    console.log('[OK] Permission accepted')
+                }, function(error) {
+                    console.info('[WARN] Permission not accepted')
+                    // Handle permission not accepted
+                })
+            }
+        };
+        var error = function (e) { alert('Something went wrong:' + e); };
+        sms.hasPermission(success, error);
+    }
+};		
+		function test()
+         {
+     var mymsg = {
+    phoneNumber: "9962981304",
+    textMessage: "Testing"
+}
+
+if (typeof sms === 'undefined' || typeof sms.sendMessage !== 'function') {
+    alert("No plugin");
+}
+sms.sendMessage(mymsg, function(message) {
+    console.log("success: " + message);
+    alert("Sent");
+}, function(error) {
+    console.log("code: " + error.code + ", message: " + error.message);
+    alert("Error sending");
+});
+         }        
       </script>
    </head>
    <body>
@@ -51,7 +136,9 @@
                <input name="" id="numberTxt" placeholder="Enter mobile number" value="" type="tel" data-mini="true"><br>
                <textarea name="" id="messageTxt" placeholder="Enter message" data-mini="false"></textarea>
                <br>
-               <input id="btnDefaultSMS" type="submit" data-theme="e" value="Send SMS" data-mini="false">
+            <!--   <input id="btnDefaultSMS" type="submit" data-theme="e" value="Send SMS" data-mini="false">-->
+            <!--   <input type="button" onclick="app.sendSms();" value="Send SMS" /> -->
+                  <input type="button" onclick="test();" value="Send SMS" /> 
             </div>
          </div>
       </div>

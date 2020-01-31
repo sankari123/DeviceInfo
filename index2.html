@@ -10,15 +10,24 @@
     <script>
     document.addEventListener("deviceready", init, false);
 function init() {
-app.checkSMSPermission();
+//app.checkSMSPermission();
+alert('sdfsdfsdfsd');	
+	
 }
-
+function testing() {
+//app.checkSMSPermission();
+ 
+  var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+        var message = document.getElementById('messageTxt').value;
+         
+	alert("number=" + number + ", message= " + message);	
+}
 var app = {
     sendSms: function() {
         var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
         var message = document.getElementById('messageTxt').value;
         console.log("number=" + number + ", message= " + message);
-	alert("number=" + number + ", message= " + message)
+	alert("number=" + number + ", message= " + message);
         //CONFIGURATION
         var options = {
             replaceLineBreaks: false, // true to replace \n by a new line, false by default
@@ -75,7 +84,9 @@ var app = {
 </script>
 	</head>
 	<body>
-<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
-<textarea id="messageTxt" placeholder="Enter message"></textarea>
-<input type="button" onclick="app.sendSms()" value="Send SMS" />
+<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
+<textarea id="messageTxt" placeholder="Enter message" value='testing'></textarea>
+<!--<input type="button" onclick="app.sendSms()" value="Send SMS" />-->
+	<input type="button" onclick="testing()" value="Send SMS" />	
+		
 </html>

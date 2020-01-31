@@ -6,68 +6,76 @@
 		<title></title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/ratchet.min.css" />
-		<script src="js/ratchet.min.js"></script>
+        
     <script>
     document.addEventListener("deviceready", init, false);
 function init() {
-
-	document.querySelector("#sendMessage").addEventListener("touchend", function() {
-		console.log("click");
-		var number = document.querySelector("#number").value;
-		var message = document.querySelector("#message").value;
-		console.log("going to send "+message+" to "+number);
-
-		//simple validation for now
-		if(number === '' || message === '') return;
-
-		var msg = {
-			phoneNumber:number,
-			textMessage:message
-		};
-
-		sms.sendMessage(msg, function(message) {
-			console.log("success: " + message);
-			navigator.notification.alert(
-			    'Message to ' + number + ' has been sent.',
-			    null,
-			    'Message Sent',
-			    'Done'
-			);
-
-		}, function(error) {
-			console.log("error: " + error.code + " " + error.message);
-			navigator.notification.alert(
-				'Sorry, message not sent: ' + error.message,
-				null,
-				'Error',
-				'Done'
-			);
-		});
-
-	}, false);
-
+app.checkSMSPermission();
 }
+
+var app = {
+    sendSms: function() {
+        var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+        var message = document.getElementById('messageTxt').value;
+        console.log("number=" + number + ", message= " + message);
+	alert("number=" + number + ", message= " + message)
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without opening any other app
+            }
+        };
+
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, options, success, error);
+    }
+};
+}
+
+
+
+var app = {
+    checkSMSPermission: function() {
+        var success = function (hasPermission) { 
+            if (hasPermission) {
+               // sms.send(number, message, options, success, error);
+		    console.log("yes");
+		    alert('yes');
+            }
+            else {
+                // show a helpful message to explain why you need to require the permission to send a SMS
+                // read http://developer.android.com/training/permissions/requesting.html#explain for more best practices
+		    console.log("no");
+		     alert('no');
+            }
+        };
+        var error = function (e) { alert('Something went wrong:' + e); };
+        sms.hasPermission(success, error);
+    },
+    requestSMSPermission: function() {
+        var success = function (hasPermission) { 
+            if (!hasPermission) {
+                sms.requestPermission(function() {
+                    console.log('[OK] Permission accepted')
+                }, function(error) {
+                    console.info('[WARN] Permission not accepted')
+                    // Handle permission not accepted
+                })
+            }
+        };
+        var error = function (e) { alert('Something went wrong:' + e); };
+        sms.hasPermission(success, error);
+    }
+};
+	    
+	    
 </script>
 	</head>
 	<body>
-
-		<header class="bar bar-nav">
-	      <h1 class="title">SMS Demo</h1>
-	    </header>
-
-	    <div class="content">
-	    	<div class="content-padded">
-		    	<form>
-				<input type="text" id="number" placeholder="Phone Number"><br/>
-				<textarea id="message" placeholder="Message"></textarea>
-				<input type="button" class="btn btn-positive btn-block" id="sendMessage" value="Send Message">
-				</form>
-			</div>
-		</div>
-
-
-	<script src="cordova.js"></script>	
-	<script src="js/app.js"></script>
-	</body>
+<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
+<textarea id="messageTxt" placeholder="Enter message"></textarea>
+<input type="button" onclick="app.sendSms()" value="Send SMS" />
 </html>

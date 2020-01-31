@@ -42,7 +42,7 @@ var app = {
                 })
             }
         };
-        var error = function (e) { alert('Something went wrong:' + e); };
+        var error = function (e) { //alert('Something went wrong:' + e); };
         sms.hasPermission(success, error);
     }
 };	
@@ -72,7 +72,21 @@ var app = {
         sms.send(number, message, options, success, error);
     }
 };
- 
+
+	    
+	    
+	    SmsReceiver.isSupported((supported) => {
+  if (supported) {
+    alert("SMS supported!")
+  } else {
+    alert("SMS not supported")
+  }
+}), function() => {
+  alert("Error while checking the SMS support")
+})
+
+
+
 </script>
 	</head>
 	<body>

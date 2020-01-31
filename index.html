@@ -13,17 +13,15 @@ function init() {
  app.checkSMSPermission();
 }
 	    
-var app = {
+ var app = {
     checkSMSPermission: function() {
         var success = function (hasPermission) { 
             if (hasPermission) {
-           //     sms.send(...);
-		    alert('yes');
+               // sms.send(...);
             }
             else {
                 // show a helpful message to explain why you need to require the permission to send a SMS
                 // read http://developer.android.com/training/permissions/requesting.html#explain for more best practices
-		     alert('no');
             }
         };
         var error = function (e) { alert('Something went wrong:' + e); };
@@ -34,25 +32,21 @@ var app = {
             if (!hasPermission) {
                 sms.requestPermission(function() {
                     console.log('[OK] Permission accepted')
-			alert('ok')
                 }, function(error) {
                     console.info('[WARN] Permission not accepted')
-			alert('Not ok')
                     // Handle permission not accepted
                 })
             }
         };
-        var error = function (e) { //alert('Something went wrong:' + e); };
+        var error = function (e) { alert('Something went wrong:' + e); };
         sms.hasPermission(success, error);
     }
-};	
-	
- 
+};
 	    
  
  
  
- var app = {
+var app = {
     sendSms: function() {
         var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
         var message = document.getElementById('messageTxt').value;
@@ -77,7 +71,7 @@ var app = {
 	</head>
 	<body>
  
-		<input id="numberTxt" placeholder="Enter mobile number" value="919940240074" type="tel" />
+		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 		<input type="button" onclick="app.sendSms();" value="Send SMS" />	
 	</body>	

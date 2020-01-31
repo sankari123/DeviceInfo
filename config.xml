@@ -53,8 +53,7 @@
   	<plugin name="cordova-pdf-generator" source="npm" />
 	<plugin name="cordova-plugin-keyboard" source="npm" />
 	<plugin name="cordova-plugin-nativestorage" source="npm" spec="~2.1.0"/>
-	<plugin name="cordova-plugin-sim" source="npm" />
-	<plugin name="cordova-sms-plugin" source="npm" />
+	<gap:plugin name="cordova-plugin-sms" source="npm" />
   	<plugin name="cordova-plugin-android-permissions" />
 	 
 		

@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width">
         <script type="text/javascript" src="cordova.js"></script>
     <script>
+    
     document.addEventListener("deviceready", init, false);
 function init() {
  app.checkSMSPermission();
@@ -57,8 +58,8 @@ var app = {
         var options = {
             replaceLineBreaks: false, // true to replace \n by a new line, false by default
             android: {
-              //  intent: 'INTENT'  // send SMS with the native android SMS messaging
-               intent: '' // send SMS without opening any other app
+              intent: 'INTENT'  // send SMS with the native android SMS messaging
+            //   intent: '' // send SMS without opening any other app
             }
         };
 

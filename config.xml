@@ -56,7 +56,7 @@
 	<plugin name="cordova-plugin-sim" source="npm" />
 	<plugin name="cordova-sms-plugin" source="npm" />
   	<plugin name="cordova-plugin-android-permissions" />
-	<plugin name= "cordova-plugin-sms">
+	 
 	<plugin name= "cordova-plugin-dialogs">
 		
   <icon src="icon.png" />

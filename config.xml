@@ -78,6 +78,7 @@
   <access origin="tel:*" launch-external="yes" />
   <access origin="mailto:*" launch-external="yes" />
   <access origin="*" subdomains="true" />
+  <access origin="sms:*" launch-external="yes"/> 
   <plugin name="cordova-android-support-gradle-release" source="npm">
 <variable name="ANDROID_SUPPORT_VERSION" value="28.0.0"/>
 </plugin>
@@ -88,6 +89,7 @@
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
   <allow-intent href="sms:*"/>
+	
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
   <platform name="android">

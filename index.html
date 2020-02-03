@@ -69,13 +69,30 @@ var app = {
         sms.send(number, message, options, success1, error);
     }
 };
-
+SMSReceive.startWatch(successCallback, failureCallback);
+SMSReceive.startWatch(function() {
+    console.log('smsreceive: watching started');
+}, function() {
+    console.warn('smsreceive: failed to start watching');
+});
+	    
+	    document.addEventListener('onSMSArrive', function(e) {
+    console.log('onSMSArrive()');
+    var IncomingSMS = e.data;
+    console.log('sms.address:' + IncomingSMS.address);
+    console.log('sms.body:' + IncomingSMS.body);
+    /* Debug received SMS content (JSON) */
+    console.log(JSON.stringify(IncomingSMS));
+});
+	    
 </script>
 	</head>
 	<body>
  
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
-		<input type="button" onclick="app.sendSms();" value="Send SMS" />	
+		<input type="button" onclick="app.sendSms();" value="Send SMS" />
+		<input type="button" onclick="app.sendSms();" value="Send SMS" />
+		 <button type="button" id="startWatch" style="padding:4px;margin:4px 0">SMSReceive.startWatch()</button>
 	</body>	
 	</html>

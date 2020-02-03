@@ -68,6 +68,8 @@ var app = {
 	var success1 = function () { alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
+	document.addEventListener("onSMSArrive" , onSMSArrive);    
+	  
     }
 };
 
@@ -81,7 +83,7 @@ function startSuccess() {
 function startFail() {
  alert("watching start failed..");
 }
-document.addEventListener("onSMSArrive" , onSMSArrive);
+
 
 function onSMSArrive(e) {
   IncomingSMS = e.data;

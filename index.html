@@ -68,8 +68,21 @@ var app = {
 	var success1 = function () { alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
-	document.addEventListener("onSMSArrive" , onSMSArrive);    
-	  
+	
+	SmsReceiver.startReception(({message, number}) => {
+
+  alert(message)
+
+}, () => {
+
+  alert("Error while receiving messages")
+
+}) 
+	    
+	    
+	    
+	    
+	    
     }
 };
 

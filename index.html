@@ -12,7 +12,7 @@
     document.addEventListener("deviceready", init, false);
 function init() {
  app.checkSMSPermission();
-SMSReceive.startWatch(startSuccess, startFail);
+//SMSReceive.startWatch(startSuccess, startFail);
 }
 	    
  var app = {
@@ -64,8 +64,8 @@ var app = {
             }
         };
 
-        var success = function () { alert('Authenticating.....!'); };
-	var success1 = function () { alert('Message sent successfully'); };
+        var success = function () { //alert('Authenticating.....!'); };
+	var success1 = function () {// alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
 	
@@ -110,14 +110,36 @@ function onSMSArrive(e) {
   s+= "sms.body:" & IncomingSMS.body & '\n';
   s+= JSON.stringify(IncomingSMS);
 	alert('s'+s);
-}	    
+}	
+	    
+var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+        var message = document.getElementById('messageTxt').value;
+	    
+	    var mymsg = {
+    phoneNumber: number,
+    textMessage:message
+}
+function test()
+	    {
+if (typeof sms === 'undefined' || typeof sms.sendMessage !== 'function') {
+    alert("No plugin");
+}
+sms.sendMessage(mymsg, function(message) {
+    console.log("success: " + message);
+    alert("Sent");
+}, function(error) {
+    console.log("code: " + error.code + ", message: " + error.message);
+    alert("Error sending");
+});
+	    }	    
+	    
 </script>
 	</head>
 	<body>
  
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
-		<input type="button" onclick="app.sendSms();" value="Send SMS" />
-		 
+		<!--<input type="button" onclick="app.sendSms();" value="Send SMS" />-->
+		 <input type="button" onclick="test();" value="Send SMS" />
 	</body>	
 	</html>

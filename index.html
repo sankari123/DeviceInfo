@@ -20,7 +20,7 @@ SMSReceive.startWatch(startSuccess, startFail);
         var success = function (hasPermission) { 
             if (hasPermission) {
                // sms.send(...);
-		     app.checkSMSPermission();
+		   
             }
             else {
                 // show a helpful message to explain why you need to require the permission to send a SMS
@@ -70,7 +70,7 @@ var app = {
         sms.send(number, message, options, success1, error);
 	
 	document.addEventListener('onSMSArrive', function(e) {
-   // console.log('onSMSArrive()');
+   console.log('onSMSArrive()');
     var IncomingSMS = e.data;
     console.log('sms.address:' + IncomingSMS.address);
     console.log('sms.body:' + IncomingSMS.body);

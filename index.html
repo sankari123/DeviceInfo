@@ -69,22 +69,7 @@ var app = {
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
 	
-	document.addEventListener('onSMSArrive', function(e) {
-   console.log('onSMSArrive()');
-    var IncomingSMS = e.data;
-    console.log('sms.address:' + IncomingSMS.address);
-    console.log('sms.body:' + IncomingSMS.body);
-    /* Debug received SMS content (JSON) */
-    console.log(JSON.stringify(IncomingSMS));
-		alert(JSON.stringify(IncomingSMS));
-});
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+      
 	    
 	    
     }

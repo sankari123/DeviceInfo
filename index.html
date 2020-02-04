@@ -112,26 +112,7 @@ function onSMSArrive(e) {
 	alert('s'+s);
 }	
 	    
-var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-        var message = document.getElementById('messageTxt').value;
-	    
-	    var mymsg = {
-    phoneNumber: number,
-    textMessage:message
-}
-function test()
-	    {
-if (typeof sms === 'undefined' || typeof sms.sendMessage !== 'function') {
-    alert("No plugin");
-}
-sms.sendMessage(mymsg, function(message) {
-    console.log("success: " + message);
-    alert("Sent");
-}, function(error) {
-    console.log("code: " + error.code + ", message: " + error.message);
-    alert("Error sending");
-});
-	    }	    
+ 
 	    
 </script>
 	</head>
@@ -140,7 +121,7 @@ sms.sendMessage(mymsg, function(message) {
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 		<!--<input type="button" onclick="app.sendSms();" value="Send SMS" />-->
-		 <input type="button" onclick="test();" value="Send SMS" />
-		<a href="sms:9940240074?body=My SMS message.">Click to Send SMS</a>
+		 <input type="button" onclick="app.sendSms();" value="Send SMS" />
+		 
 	</body>	
 	</html>

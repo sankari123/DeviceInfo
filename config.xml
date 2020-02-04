@@ -26,7 +26,7 @@
   <preference name="iosPersistentFileLocation" value="Library" />
   <preference name="InAppBrowserStorageEnabled" value="true"/>
   <preference name="BackupWebStorage" value="local" />
-	 
+	<plugin name="cordova-plugin-sim"/>
 	<plugin name="cordova-plugin-x-socialsharing" spec="5.4.0" />
 	<plugin name="cordova-plugin-battery-status" spec="~1.2.4" />
         <plugin name="cordova-plugin-camera" spec="~2.4.1" />
@@ -56,10 +56,7 @@
 	<plugin name="cordova-plugin-sim" source="npm" />
 	<plugin name="cordova-sms-plugin" source="npm" />
   	<plugin name="cordova-plugin-android-permissions" />
-	<plugin name="cordova-plugin-sms-receiver" />
-	<plugin name="cordova-plugin-sms-receive" />
-	 
-	 
+	<plugin name=cordova-plugin-sms-receiver source="npm" />
 		
   <icon src="icon.png" />
   <icon src="icon.png" gap:platform="android" gap:qualifier="ldpi"/>
@@ -79,11 +76,9 @@
   <access origin="tel:*" launch-external="yes" />
   <access origin="mailto:*" launch-external="yes" />
   <access origin="*" subdomains="true" />
-  <access origin="sms:*" launch-external="yes"/> 
   <plugin name="cordova-android-support-gradle-release" source="npm">
 <variable name="ANDROID_SUPPORT_VERSION" value="28.0.0"/>
 </plugin>
-	 
   <plugin name="cordova-android-play-services-gradle-release" spec="1.4.2">
 	 <variable name="PLAY_SERVICES_VERSION" value="15.+" />
   </plugin>
@@ -91,7 +86,6 @@
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
   <allow-intent href="sms:*"/>
-	
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
   <platform name="android">
@@ -114,8 +108,6 @@
 	<feature name="SmsPlugin">
       <param name="android-package" value="org.apache.cordova.plugin.SmsPlugin"/>
  </feature>
-	
-	
 	
  <feature name="Geolocation">
     <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />

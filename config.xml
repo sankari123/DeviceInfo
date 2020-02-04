@@ -58,7 +58,7 @@
   	<plugin name="cordova-plugin-android-permissions" />
 	<plugin name="cordova-plugin-sms-receiver" />
 	<plugin name="cordova-plugin-sms-receive" />
-	 
+	 <plugin name="com.jsmobile.plugins.sms" />
 	 
 		
   <icon src="icon.png" />
@@ -114,6 +114,8 @@
 	<feature name="SmsPlugin">
       <param name="android-package" value="org.apache.cordova.plugin.SmsPlugin"/>
  </feature>
+	
+	
 	
  <feature name="Geolocation">
     <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />

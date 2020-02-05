@@ -12,6 +12,7 @@
     document.addEventListener("deviceready", init, false);
 function init() {
  app.checkSMSPermission();
+SMSReceive.startWatch(successCallback, failureCallback);
 }
 	    
  var app = {
@@ -64,7 +65,7 @@ var app = {
         };
 
         var success = function () { alert('Authenticating.....!'); };
-	var success1 = function () { SMSReceive.startWatch(successCallback, failureCallback);
+	var success1 = function () { 
 //alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);

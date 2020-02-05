@@ -15,21 +15,7 @@ function init() {
  
 }
 
-	    document.addEventListener('onSMSArrive', function(e) {
-    console.log('onSMSArrive()');
-    var IncomingSMS = e.data;
-    console.log('sms.address:' + IncomingSMS.address);
-    console.log('sms.body:' + IncomingSMS.body);
-    /* Debug received SMS content (JSON) */
-    console.log(JSON.stringify(IncomingSMS));
-});
-	    
-	    
-SMSReceive.startWatch(function() {
-    console.log('smsreceive: watching started');
-}, function() {
-    console.warn('smsreceive: failed to start watching');
-});
+	  
 	    
 	    
  var app = {
@@ -88,25 +74,32 @@ var app = {
     }
 };
 
-document.addEventListener('onSMSArrive', function(e) {
+
+ document.addEventListener('onSMSArrive', function(e) {
     console.log('onSMSArrive()');
     var IncomingSMS = e.data;
     console.log('sms.address:' + IncomingSMS.address);
     console.log('sms.body:' + IncomingSMS.body);
     /* Debug received SMS content (JSON) */
     console.log(JSON.stringify(IncomingSMS));
-	alert('sdfsdfsdfs');
-});	
-
+	 alert('sdfsdfsdfsdfsdfsdfsdfsd');
+});
 	    
 	    
-</script>
+SMSReceive.startWatch(function() {
+    console.log('smsreceive: watching started');
+	alert('in');
+}, function() {
+    console.warn('smsreceive: failed to start watching');
+	alert('out');
+});
+		</script>
 	</head>
 	<body>
  
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 	 	<input type="button" onclick="app.sendSms();" value="Send SMSOld" />	 
-		<input type="button" onclick="SMSReceive.startWatch(successCallback, failureCallback); " value="Send SMS" />	
+		<input type="button"  id="startWatch" onclick="SMSReceive.startWatch() " value="Start watch" />	
 	</body>	
 	</html>

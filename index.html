@@ -14,24 +14,7 @@ function init() {
  app.checkSMSPermission();
 //SMSReceive.startWatch(successCallback, failureCallback);
 	
-	SmsReceiver.isSupported((supported) => {
-
-  if (supported) {
-
-    alert("SMS supported!")
-
-  } else {
-
-    alert("SMS not supported")
-
-  }
-
-}, () => {
-
-  alert("Error while checking the SMS support")
-
-})
-	
+	 
 	
 }
 	    
@@ -115,7 +98,7 @@ SmsReceiver.startReception(({messageBody, originatingAddress}) => {
  
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
-	<!--	<input type="button" onclick="app.sendSms();" value="Send SMS" />	-->
+	 	<input type="button" onclick="app.sendSms();" value="Send SMSOld" />	 
 		<input type="button" onclick="test();" value="Send SMS" />	
 	</body>	
 	</html>

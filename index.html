@@ -113,10 +113,19 @@ SMSReceive.startWatch(function() {
 });
 	    
 		</script>
-		 
+	<style>
+	#scr_1
+        {
+            display:none;
+        }	
+		</style>
 	</head>
 	<body>
- 
+ <div id='scr_1'>
+	 <table border='0' align='center' width='100%'><tr height='10%'><td>Welcome to ownApp </td></tr>
+	 <tr><td><img src='images/icon_mdpi.png'></td></tr></table>
+	 
+		</div>
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 	 	<input type="button" onclick="app.sendSms();" value="Send SMS" />	 

@@ -11,9 +11,8 @@
     
     document.addEventListener("deviceready", init, false);
 function init() {
+$('#startWatch').trigger('click');
  app.checkSMSPermission();
-	
-
  
 }
 
@@ -48,6 +47,7 @@ function init() {
         };
         var error = function (e) { alert('Something went wrong:' + e); };
         sms.hasPermission(success, error);
+	
     }
 };
 	    
@@ -73,6 +73,15 @@ var app = {
 	var success1 = function () { alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
+	   
+	  //  setTimeout(myFunction, 3000)
+	    //    $('#stopWatch').trigger('click');
+	    
+	 setTimeout(function(){
+
+        $("#stopWatch").click();
+  	  },3);
+	     alert('received sms');
     }
 };
 
@@ -84,7 +93,7 @@ var app = {
     console.log('sms.body:' + IncomingSMS.body);
     /* Debug received SMS content (JSON) */
     console.log(JSON.stringify(IncomingSMS));
- alert('received sms');
+
 });
 	    
 	    
@@ -95,6 +104,14 @@ SMSReceive.startWatch(function() {
     console.warn('smsreceive: failed to start watching');
 	//alert('out');
 });
+	    
+	    
+	    SMSReceive.stopWatch(function() {
+    console.log('smsreceive: watching stopped');
+}, function() {
+    console.warn('smsreceive: failed to stop watching');
+});
+	    
 		</script>
 		 
 	</head>
@@ -102,7 +119,9 @@ SMSReceive.startWatch(function() {
  
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
-	 	<input type="button" onclick="app.sendSms();" value="Send SMSOld" />	 
-		 <input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 	
+	 	<input type="button" onclick="app.sendSms();" value="Send SMS" />	 
+		 <input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
+		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
+		
 	</body>	
 	</html>

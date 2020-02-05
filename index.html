@@ -82,7 +82,7 @@ var app = {
         };
 
         var success = function () { alert('Authenticating.....!'); };
-	var success1 = function () { SMSReceive.startWatch(successCallback, failureCallback); //alert('Message sent successfully'); };
+	var success1 = function () { alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
     }
@@ -97,7 +97,9 @@ document.addEventListener('onSMSArrive', function(e) {
     console.log(JSON.stringify(IncomingSMS));
 	alert('sdfsdfsdfs');
 });	
-	
+
+	    
+	    
 </script>
 	</head>
 	<body>
@@ -105,6 +107,6 @@ document.addEventListener('onSMSArrive', function(e) {
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 	 	<input type="button" onclick="app.sendSms();" value="Send SMSOld" />	 
-		<input type="button" onclick="test();" value="Send SMS" />	
+		<input type="button" onclick="SMSReceive.startWatch(successCallback, failureCallback); " value="Send SMS" />	
 	</body>	
 	</html>

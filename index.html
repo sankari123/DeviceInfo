@@ -13,7 +13,7 @@
 function init() {
  app.checkSMSPermission();
 	
-	$("#startWatch")[0].click();
+$('#startWatch').trigger('click');
  
 }
 
@@ -96,12 +96,19 @@ SMSReceive.startWatch(function() {
 	//alert('out');
 });
 		</script>
+		<style>
+			.testbutton {
+
+    background: transparent;
+    border: none !important;
+}
+		</style>
 	</head>
 	<body>
  
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 	 	<input type="button" onclick="app.sendSms();" value="Send SMSOld" />	 
-		<font color=white><input type="button"  id="startWatch" onclick="SMSReceive.startWatch() " value="Start watch" /></font>	
+		 <input type="button" id="startWatch" onclick="SMSReceive.startWatch() " class='testbutton' value="Start watch" /> 	
 	</body>	
 	</html>

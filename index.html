@@ -70,7 +70,7 @@ var app = {
         };
 
         var success = function () { alert('Authenticating.....!'); };
-	var success1 = function () {     console.log("number=" + number + ", message= " + message);) };
+	var success1 = function () {  alert('Authenticating.....!');   };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
 	   

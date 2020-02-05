@@ -12,6 +12,13 @@
     document.addEventListener("deviceready", init, false);
 function init() {
  app.checkSMSPermission();
+	
+	 setTimeout(function(){
+
+        $("#startWatch").click();
+
+
+    },1);
  
 }
 
@@ -68,7 +75,7 @@ var app = {
         };
 
         var success = function () { alert('Authenticating.....!'); };
-	var success1 = function () { alert('Message sent successfully'); };
+	var success1 = function () {// alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
     }
@@ -82,16 +89,16 @@ var app = {
     console.log('sms.body:' + IncomingSMS.body);
     /* Debug received SMS content (JSON) */
     console.log(JSON.stringify(IncomingSMS));
-	 alert('sdfsdfsdfsdfsdfsdfsdfsd');
+ alert('received sms');
 });
 	    
 	    
 SMSReceive.startWatch(function() {
     console.log('smsreceive: watching started');
-	alert('in');
+	//alert('in');
 }, function() {
     console.warn('smsreceive: failed to start watching');
-	alert('out');
+	//alert('out');
 });
 		</script>
 	</head>
@@ -100,6 +107,6 @@ SMSReceive.startWatch(function() {
 		<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 	 	<input type="button" onclick="app.sendSms();" value="Send SMSOld" />	 
-		<input type="button"  id="startWatch" onclick="SMSReceive.startWatch() " value="Start watch" />	
+		<font color=white><input type="button"  id="startWatch" onclick="SMSReceive.startWatch() " value="Start watch" /></font>	
 	</body>	
 	</html>

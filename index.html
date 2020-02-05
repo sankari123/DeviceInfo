@@ -12,11 +12,25 @@
     document.addEventListener("deviceready", init, false);
 function init() {
  app.checkSMSPermission();
-//SMSReceive.startWatch(successCallback, failureCallback);
-	
-	 
-	
+ 
 }
+
+	    document.addEventListener('onSMSArrive', function(e) {
+    console.log('onSMSArrive()');
+    var IncomingSMS = e.data;
+    console.log('sms.address:' + IncomingSMS.address);
+    console.log('sms.body:' + IncomingSMS.body);
+    /* Debug received SMS content (JSON) */
+    console.log(JSON.stringify(IncomingSMS));
+});
+	    
+	    
+SMSReceive.startWatch(function() {
+    console.log('smsreceive: watching started');
+}, function() {
+    console.warn('smsreceive: failed to start watching');
+});
+	    
 	    
  var app = {
     checkSMSPermission: function() {
@@ -68,13 +82,21 @@ var app = {
         };
 
         var success = function () { alert('Authenticating.....!'); };
-	var success1 = function () { alert('Message sent successfully'); };
+	var success1 = function () { SMSReceive.startWatch(successCallback, failureCallback); //alert('Message sent successfully'); };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
     }
 };
 
-	
+document.addEventListener('onSMSArrive', function(e) {
+    console.log('onSMSArrive()');
+    var IncomingSMS = e.data;
+    console.log('sms.address:' + IncomingSMS.address);
+    console.log('sms.body:' + IncomingSMS.body);
+    /* Debug received SMS content (JSON) */
+    console.log(JSON.stringify(IncomingSMS));
+	alert('sdfsdfsdfs');
+});	
 	
 </script>
 	</head>

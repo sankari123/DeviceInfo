@@ -61,27 +61,27 @@ function init() {
 	    
    function onConfirm(buttonIndex) {
        alert('You selected button ' + buttonIndex);
-	   if(buttonIndex==1)
-	   {
-	 app.sendSms() ;
-	   }
-	   else
-	   {
-		   document.getElementById('numberTxt').focus();
-	   }
+	 
 		   
    }
  
  cnfmTest()
   {
-         msg1="Do you want to send SMS to ";
-	 navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
+       //  msg1="Do you want to send SMS to ";
+	// navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
+	  navigator.notification.confirm(
+            'Do you want to send SMS to', // message
+             onConfirm,            // callback to invoke with index of button pressed
+            'Send SMS',           // title
+            ['OK','Cancel']         // buttonLabels
+        );
  }
 	    
 	    
 var app = {
     sendSms: function() {
-  
+    var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+    var message = document.getElementById('messageTxt').value;
         //CONFIGURATION
 	    $('#startWatch').trigger('click');
         var options = {

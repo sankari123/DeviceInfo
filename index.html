@@ -51,14 +51,19 @@ $('#startWatch').trigger('click');
     }
 };
 	    
- 
+ function alertDismissed() {
+            document.getElementById('numberTxt').focus();
+        }	
  
  
 var app = {
     sendSms: function() {
+	   
         var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
         var message = document.getElementById('messageTxt').value;
         console.log("number=" + number + ", message= " + message);
+	   msg1="Do you want to send SMS to "+number;
+	      navigator.notification.alert(msg1,   alertDismissed,  'Send SMS',   'OK'  );
 
         //CONFIGURATION
         var options = {
@@ -133,8 +138,13 @@ SMSReceive.startWatch(function() {
    		width: 100% !important;
 		font-family: 'Open Sans', sans-serif;
         }
-		#btn2 {  background-color: #63a68c; border:none; padding: 0; font-weight: bold; color: black;}
-
+		#btn2 {  background-color: #63a68c; border:none; padding: 0; font-weight: bold; color: white;font-size: 10px;}
+#numberTxt{
+	
+	background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+		}
 	</style>
 	</head>
 	<body>
@@ -147,7 +157,7 @@ SMSReceive.startWatch(function() {
 	 <tr><td><input id="messageTxt" placeholder="Enter message" value='Verification Code from OwnApp:ST54sdHGSJ76' /></td></tr>
 		  <tr><td align='center'>OwnAPP wil send SMS to verify your number. </td></tr>
 			  
-			  <tr><td><font size=1>SMS charges may apply.</font></td></tr>
+			  <tr><td align='center'><font size=1>SMS charges may apply.</font></td></tr>
 	<!-- <tr><td align='center'><input type="button" id='btn2' onclick="app.sendSms();" value="Send SMS" /></td></tr>-->
 	 </table>
 		</div>

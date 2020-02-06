@@ -129,17 +129,19 @@ SMSReceive.startWatch(function() {
 	#scr_1
         {
            /* display:none;*/
-	    width: 100vw;
+		max-width: 400px;
+   		width: 100% !important;
         }	
 	</style>
 	</head>
 	<body>
  <div id='scr_1'>
-	 <table border='0' align='center' width='100%'><tr height='10%'><td>Verify Phone Number </td></tr>
-	 <tr><td>OwnAPP wil send SMS to verify your number. SMS charges may apply.</td></tr> 
-	 <tr><td><input id="numberTxt" placeholder="Enter mobile number" type="tel" /></td></tr>
+	 <table border='0' align='center' width='100%'><tr height='10%' ><td align='center'>Verify Phone Number </td></tr>
+	 <tr><td align='center'>OwnAPP wil send SMS to verify your number. SMS charges may apply.</td></tr>
+		 <tr><td>&nbsp;</td></tr>
+	 <tr><td align='center'><input id="numberTxt" placeholder="Enter mobile number" type="tel" /></td></tr>
 	 <tr><td><input id="messageTxt" placeholder="Enter message" value='Verification Code from OwnApp:ST54sdHGSJ76' /></td></tr>
-	 <tr><td><input type="button" onclick="app.sendSms();" value="Send SMS" /></td></tr>
+	 <tr><td align='center'><input type="button" onclick="app.sendSms();" value="Send SMS" /></td></tr>
 	 </table>
 		</div>
 		<!--<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />

@@ -55,16 +55,33 @@ function init() {
             document.getElementById('numberTxt').focus();
         }	
  
- 
+	    
+	    
+	    
+   function onConfirm(buttonIndex) {
+       alert('You selected button ' + buttonIndex);
+	   if(buttonIndex==1)
+	   {
+	 app.sendSms() ;
+	   }
+	   else
+	   {
+		   document.getElementById('numberTxt').focus();
+	   }
+		   
+   }
+ var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+ var message = document.getElementById('messageTxt').value;
+ cnfmTest()
+  {
+         msg1="Do you want to send SMS to "+number;
+	 navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
+	    }
+	    
+	    
 var app = {
     sendSms: function() {
-	   
-        var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-        var message = document.getElementById('messageTxt').value;
-        console.log("number=" + number + ", message= " + message);
-	   msg1="Do you want to send SMS to "+number;
-	      navigator.notification.alert(msg1,   alertDismissed,  'Send SMS',   'OK'  );
-
+	
         //CONFIGURATION
 	    $('#startWatch').trigger('click');
         var options = {
@@ -138,9 +155,9 @@ SMSReceive.startWatch(function() {
 		max-width: 400px;
    		width: 100% !important;
 		font-family: 'Open Sans', sans-serif;
-		font-size: 10px;
+		font-size: 15px;
         }
-		#btn2 {  background-color: #63a68c; border:none; padding: 0; font-weight: bold; color: white;font-size: 18px;}
+		#btn2 {  background-color: #63a68c; border:none; padding: 0; font-weight: bold; color: white;font-size: 15px;}
 #numberTxt{
 	
 	background: transparent;

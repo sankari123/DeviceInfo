@@ -11,8 +11,8 @@
     
     document.addEventListener("deviceready", init, false);
 function init() {
-$('#startWatch').trigger('click');
- app.checkSMSPermission();
+//$('#startWatch').trigger('click');
+// app.checkSMSPermission();
  
 }
 
@@ -66,6 +66,7 @@ var app = {
 	      navigator.notification.alert(msg1,   alertDismissed,  'Send SMS',   'OK'  );
 
         //CONFIGURATION
+	    $('#startWatch').trigger('click');
         var options = {
             replaceLineBreaks: false, // true to replace \n by a new line, false by default
             android: {
@@ -137,8 +138,9 @@ SMSReceive.startWatch(function() {
 		max-width: 400px;
    		width: 100% !important;
 		font-family: 'Open Sans', sans-serif;
+		font-size: 10px;
         }
-		#btn2 {  background-color: #63a68c; border:none; padding: 0; font-weight: bold; color: white;font-size: 10px;}
+		#btn2 {  background-color: #63a68c; border:none; padding: 0; font-weight: bold; color: white;font-size: 18px;}
 #numberTxt{
 	
 	background: transparent;

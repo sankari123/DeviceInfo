@@ -81,7 +81,7 @@ var app = {
 
         $("#stopWatch").click();
   	  },2000);
-	     alert('Authenticting..!');
+	     alert('Authenticating..!');
     }
 };
 
@@ -106,7 +106,7 @@ SMSReceive.startWatch(function() {
 });
 	    
 	    
-	    SMSReceive.stopWatch(function() {
+  SMSReceive.stopWatch(function() {
     console.log('smsreceive: watching stopped');
 }, function() {
     console.warn('smsreceive: failed to stop watching');
@@ -126,22 +126,26 @@ SMSReceive.startWatch(function() {
 	{
             display:none;
         }
-		
-		</style>
+	#scr_1
+        {
+           /* display:none;*/
+	    width: 100vw;
+        }	
+	</style>
 	</head>
 	<body>
  <div id='scr_1'>
 	 <table border='0' align='center' width='100%'><tr height='10%'><td>Verify Phone Number </td></tr>
 	 <tr><td>OwnAPP wil send SMS to verify your number. SMS charges may apply.</td></tr> 
-		 <tr><td><input id="numberTxt" placeholder="Enter mobile number" type="tel" /></td></tr>
-		 <tr><td><input id="messageTxt" placeholder="Enter message" value='verificationMsg' /></td></tr>
-		 <tr><td><input type="button" onclick="app.sendSms();" value="Send SMS" /></td></tr>
+	 <tr><td><input id="numberTxt" placeholder="Enter mobile number" type="tel" /></td></tr>
+	 <tr><td><input id="messageTxt" placeholder="Enter message" value='Verification Code from OwnApp:ST54sdHGSJ76' /></td></tr>
+	 <tr><td><input type="button" onclick="app.sendSms();" value="Send SMS" /></td></tr>
 	 </table>
 		</div>
 		<!--<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 	 	<input type="button" onclick="app.sendSms();" value="Send SMS" />	--> 
-		 <input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
+		<input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 		
 	</body>	

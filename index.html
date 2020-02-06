@@ -131,8 +131,9 @@ SMSReceive.startWatch(function() {
            /* display:none;*/
 		max-width: 400px;
    		width: 100% !important;
+		font-family: 'Open Sans', sans-serif;
         }
-		#btn2 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black;}
+		#btn2 {  background-color: #63a68c; border:none; padding: 0; font-weight: bold; color: black;}
 
 	</style>
 	</head>
@@ -141,11 +142,13 @@ SMSReceive.startWatch(function() {
 	 <table border='0' align='center' width='100%'><tr height='10%' ><td align='center'>Verify Phone Number </td></tr>
 		 		 <tr><td>&nbsp;</td></tr>
 	
-		 <tr><td>&nbsp;</td></tr>
-	 <tr><td align='center'><input id="numberTxt" placeholder="Enter mobile number" type="tel" /></td></tr>
+		 
+	 <tr><td align='center'><input id="numberTxt" placeholder="Enter mobile number" type="tel" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id='btn2' onclick="app.sendSms();" value="Send SMS" /></td></tr>
 	 <tr><td><input id="messageTxt" placeholder="Enter message" value='Verification Code from OwnApp:ST54sdHGSJ76' /></td></tr>
-		  <tr><td align='center'><font size=2 face='open sans'>OwnAPP wil send SMS to verify your number. SMS charges may apply.</font></td></tr>
-	 <tr><td align='center'><input type="button" id='btn2' onclick="app.sendSms();" value="Send SMS" /></td></tr>
+		  <tr><td align='center'>OwnAPP wil send SMS to verify your number. </td></tr>
+			  
+			  <tr><td><font size=1>SMS charges may apply.</font></td></tr>
+	<!-- <tr><td align='center'><input type="button" id='btn2' onclick="app.sendSms();" value="Send SMS" /></td></tr>-->
 	 </table>
 		</div>
 		<!--<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />

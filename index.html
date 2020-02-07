@@ -151,20 +151,13 @@ SMSReceive.startWatch(function() {
 	      if(buttonIndex==1)
 	      {
 		   
-		    getPhoto(pictureSource.PHOTOLIBRARY);    
+		   navigator.camera.getPicture(onSuccess, onFail, { quality: 50,destinationType: Camera.DestinationType.FILE_URI,sourceType: sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
 	      }
 		    else 
 		    {
 		    }
 	    }
-function getPhoto(source) {
-
-     navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
-                    allowEdit: true,
-                    destinationType: Camera.DestinationType.FILE_URI
-                });
-    }	    
+ 
 
 	    function onSuccess(imageData) {
 		    document.getElementById("imgDP").style.display = "block";

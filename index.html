@@ -162,8 +162,10 @@ SMSReceive.startWatch(function() {
  
 
 	    function onSuccess(imageData) {
-		    document.getElementById("footer_opt").style.display = "block";
-   		    document.getElementById("footer_opt").style.visibility="visible";
+		    document.getElementById("footer").style.display = "block";
+   		    document.getElementById("footer").style.visibility="visible";
+		     document.getElementById("content").style.display = "block";
+   		    document.getElementById("content").style.visibility="visible";
 		     
                 var image = document.getElementById('img');
                 image.src = imageData + '?' + Math.random();;
@@ -207,15 +209,21 @@ SMSReceive.startWatch(function() {
     border: none;
     border-bottom: 1px solid #000000;
 		}
-		
-		#footer_opt
+		#content 
         {
           display:none; 
-position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 90px;
-  background-color: #595959;
+		}
+		
+		#footer 
+        {
+          display:none; 
+position: fixed;
+    height: 50px;
+    background-color: red;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
 		}	
 		
 		.circle {
@@ -261,12 +269,11 @@ background:none;
 		<input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 		<div id="header"></div>
-      <div id="content"></div>
-      <div id="footer"></div>     
+      <div id="content"> <img src="images/circle.jpg" id='img' class='circle'><br>
+	    <input id='namTxt' placeholder='Enter Name'></br></div>
+      <div id="footer">    
 		
-<div id='footer_opt'>
-            <img src="images/circle.jpg" id='img' class='circle'><br>
-	    <input id='namTxt' placeholder='Enter Name'></br>
+          
       <table width='100%'>
 	      <tr><td width='50%'><input id='btnQ' type="reset" value="Cancel"/></td><td><input id='btnQ' type="submit"  value="Save"/></tr></table>
 	</div>

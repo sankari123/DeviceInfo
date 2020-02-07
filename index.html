@@ -57,16 +57,28 @@ function init() {
 	    
    function onConfirm(buttonIndex) {
        alert('You selected button ' + buttonIndex);
-	   $('#startWatch').trigger('click');
-//	app.sendSms(); 
+   if(button==1){ 
+	 $('#startWatch').trigger('click');
+        app.sendSms(); 
+    }
+	   else 
+    {
+         document.getElementById("numberTxt").focus();
+    }
+	 
+	   
+	   
+ 	
 		   
    }
  
- cnfmTest()
+	    
+ function cnfmTest()
   {
        //  msg1="Do you want to send SMS to ";
 	// navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
-	  navigator.notification.confirm('Do you want to send SMS to', onConfirm,  'Send SMS',   ['OK','Cancel']       );
+	 navigator.notification.confirm('Do you want to send SMS to', onConfirm,  'Send SMS',   ['OK','Cancel']       );
+	 // alert('inside');
  }
 	    
 	    

@@ -150,6 +150,7 @@ SMSReceive.startWatch(function() {
 	    {
 	      if(buttonIndex==1)
 	      {
+		       
  navigator.camera.getPicture(onSuccess, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: false, destinationType: Camera.DestinationType.FILE_URI
                 });   
 
@@ -163,6 +164,8 @@ SMSReceive.startWatch(function() {
 	    function onSuccess(imageData) {
 		    document.getElementById("imgDP").style.display = "block";
    		    document.getElementById("imgDP").style.visibility="visible";
+		     document.getElementById("foot_btn").style.display = "block";
+   		    document.getElementById("foot_btn").style.visibility="visible";
                 var image = document.getElementById('img');
                 image.src = imageData + '?' + Math.random();;
             }
@@ -189,6 +192,7 @@ SMSReceive.startWatch(function() {
 	{
             display:none;
         }
+		
 	#scr_1
         {
            /* display:none;*/
@@ -207,8 +211,8 @@ SMSReceive.startWatch(function() {
 		
 		#imgDP
         {
-           display:none; 
-		
+          display:none; 
+	 
 		}	
 		
 		.circle {
@@ -218,8 +222,24 @@ SMSReceive.startWatch(function() {
     background-repeat: no-repeat;
     width:70px;
     height:70px;
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
-	</style>
+#foot_btn
+		{
+	    display:none;  margin: 0 auto;	
+		}
+		#btnQ
+		{
+		background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+		}
+		</style>
 	</head>
 	<body>
  <div id='scr_1'>
@@ -242,8 +262,13 @@ SMSReceive.startWatch(function() {
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 		
 <div id='imgDP'>
-            <img src="images/circle.jpg" id='img' class='circle'>
-        </div>
+            <img src="images/circle.jpg" id='img' class='circle'><br>
+	    <input id='namTxt' placeholder='Enter Name'></br>
 	
+        </div>
+	<div id='foot_btn'>
+		 
+<input id='btnQ' type="reset" value="Cancel"/><input id='btnQ' type="submit"  value="Save"/>
+	</div>
 	</body>	
 	</html>

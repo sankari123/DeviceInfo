@@ -8,8 +8,7 @@
 		<meta name="viewport" content="width=device-width">
         <script type="text/javascript" src="cordova.js"></script>
     <script>
-    var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-    var message = document.getElementById('messageTxt').value;
+   
     document.addEventListener("deviceready", init, false);
 function init() {
  $('#startWatch').trigger('click');
@@ -75,7 +74,9 @@ function init() {
 	    
  function cnfmTest()
   {
-         msg1="Do you want to send SMS to "+number;
+          var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+   	  
+	  msg1="Do you want to send SMS to "+number;
 	// navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
 	 navigator.notification.confirm(msg1, onConfirm,  'Send SMS',   ['OK','Cancel']       );
 	 // alert('inside');
@@ -84,8 +85,8 @@ function init() {
 	    
 var app = {
     sendSms: function() {
-   // var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-   // var message = document.getElementById('messageTxt').value;
+  var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+   var message = document.getElementById('messageTxt').value;
         //CONFIGURATION
 	    
         var options = {

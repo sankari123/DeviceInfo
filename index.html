@@ -162,10 +162,9 @@ SMSReceive.startWatch(function() {
  
 
 	    function onSuccess(imageData) {
-		    document.getElementById("imgDP").style.display = "block";
-   		    document.getElementById("imgDP").style.visibility="visible";
-		     document.getElementById("foot_btn").style.display = "block";
-   		    document.getElementById("foot_btn").style.visibility="visible";
+		    document.getElementById("footer_opt").style.display = "block";
+   		    document.getElementById("footer_opt").style.visibility="visible";
+		     
                 var image = document.getElementById('img');
                 image.src = imageData + '?' + Math.random();;
             }
@@ -209,10 +208,11 @@ SMSReceive.startWatch(function() {
     border-bottom: 1px solid #000000;
 		}
 		
-		#imgDP
+		#footer_opt
         {
           display:none; 
-	 
+	  
+text-align: center;
 		}	
 		
 		.circle {
@@ -227,12 +227,7 @@ SMSReceive.startWatch(function() {
   margin-right: auto;
   
 }
-#foot_div
-{
  
-text-align: center;
-display:none;  	
-}
 #btnQ
 {
 background:none;
@@ -263,12 +258,10 @@ background:none;
 		<input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 		
-<div id='imgDP'>
+<div id='footer_opt'>
             <img src="images/circle.jpg" id='img' class='circle'><br>
 	    <input id='namTxt' placeholder='Enter Name'></br>
-	
-        </div>
-	<div id='foot_div'>
+      
 <input id='btnQ' type="reset" value="Cancel"/><input id='btnQ' type="submit"  value="Save"/>
 	</div>
 	</body>	

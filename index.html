@@ -211,8 +211,11 @@ SMSReceive.startWatch(function() {
 		#footer_opt
         {
           display:none; 
-	  
-text-align: center;
+position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+  background-color: #595959;
 		}	
 		
 		.circle {
@@ -257,12 +260,15 @@ background:none;
 	 	<input type="button" onclick="app.sendSms();" value="Send SMS" />	--> 
 		<input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
+		<div id="header"></div>
+      <div id="content"></div>
+      <div id="footer"></div>     
 		
 <div id='footer_opt'>
             <img src="images/circle.jpg" id='img' class='circle'><br>
 	    <input id='namTxt' placeholder='Enter Name'></br>
-      
-<input id='btnQ' type="reset" value="Cancel"/><input id='btnQ' type="submit"  value="Save"/>
+      <table width='100%'>
+	      <tr><td width='50%'><input id='btnQ' type="reset" value="Cancel"/></td><td><input id='btnQ' type="submit"  value="Save"/></tr></table>
 	</div>
 	</body>	
 	</html>

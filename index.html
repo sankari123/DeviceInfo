@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title></title>
+		<title>ownApp</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
         <script type="text/javascript" src="cordova.js"></script>
@@ -150,7 +150,7 @@ SMSReceive.startWatch(function() {
 	    {
 	      if(buttonIndex==1)
 	      {
- navigator.camera.getPicture(onSuccess, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: true, destinationType: Camera.DestinationType.FILE_URI
+ navigator.camera.getPicture(onSuccess, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: false, destinationType: Camera.DestinationType.FILE_URI
                 });   
 
 	      }
@@ -209,7 +209,16 @@ SMSReceive.startWatch(function() {
         {
            display:none; 
 		
-		}		
+		}	
+		
+		.circle {
+    
+    background-size: cover;
+    border-radius:50% 50% 50% 50%;
+    background-repeat: no-repeat;
+    width:70px;
+    height:70px;
+}
 	</style>
 	</head>
 	<body>
@@ -233,7 +242,7 @@ SMSReceive.startWatch(function() {
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 		
 <div id='imgDP'>
-            <img src="img/cam2.jpg" id='img' style="width: 100px; height: 100px;">
+            <img src="images/circle.jpg" id='img' class='circle'>
         </div>
 	
 	</body>	

@@ -61,7 +61,7 @@ function init() {
 	    
    function onConfirm(buttonIndex) {
        alert('You selected button ' + buttonIndex);
-	 
+	app.sendSms(); 
 		   
    }
  
@@ -69,12 +69,7 @@ function init() {
   {
        //  msg1="Do you want to send SMS to ";
 	// navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
-	  navigator.notification.confirm(
-            'Do you want to send SMS to', // message
-             onConfirm,            // callback to invoke with index of button pressed
-            'Send SMS',           // title
-            ['OK','Cancel']         // buttonLabels
-        );
+	  navigator.notification.confirm('Do you want to send SMS to', onConfirm,  'Send SMS',   ['OK','Cancel']       );
  }
 	    
 	    

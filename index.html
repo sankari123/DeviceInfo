@@ -12,7 +12,7 @@
     var message = document.getElementById('messageTxt').value;
     document.addEventListener("deviceready", init, false);
 function init() {
-//$('#startWatch').trigger('click');
+ $('#startWatch').trigger('click');
   app.checkSMSPermission();
  
 }
@@ -56,9 +56,9 @@ function init() {
 	    
 	    
    function onConfirm(buttonIndex) {
-       alert('You selected button ' + buttonIndex);
+      // alert('You selected button ' + buttonIndex);
    if(button==1){ 
-	 $('#startWatch').trigger('click');
+	
         app.sendSms(); 
     }
 	   else 
@@ -75,17 +75,17 @@ function init() {
 	    
  function cnfmTest()
   {
-       //  msg1="Do you want to send SMS to ";
+         msg1="Do you want to send SMS to "+number;
 	// navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
-	 navigator.notification.confirm('Do you want to send SMS to', onConfirm,  'Send SMS',   ['OK','Cancel']       );
+	 navigator.notification.confirm(msg1, onConfirm,  'Send SMS',   ['OK','Cancel']       );
 	 // alert('inside');
  }
 	    
 	    
 var app = {
     sendSms: function() {
-    var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-    var message = document.getElementById('messageTxt').value;
+   // var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+   // var message = document.getElementById('messageTxt').value;
         //CONFIGURATION
 	    
         var options = {

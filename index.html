@@ -57,7 +57,11 @@ function init() {
    function onConfirm(buttonIndex) {
       // alert('You selected button ' + buttonIndex);
    if(buttonIndex==1){ 
-	
+	var hideKeyboard = function() {
+    	    document.activeElement.blur();
+    	    $("input").blur();
+	};
+	   
         app.sendSms(); 
     }
 	   else 
@@ -77,7 +81,7 @@ function init() {
           var number1= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
    	  
 	  msg1="Do you want to send SMS to " + number1;
-	// navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
+	 
 	 navigator.notification.confirm(msg1, onConfirm,  'Send SMS',   ['OK','Cancel']       );
 	 // alert('inside');
  }
@@ -98,7 +102,7 @@ var app = {
         };
 
         var success = function () { alert('Starting.....!'); };
-	var success1 = function () {  alert('Authentication Successful.....!');   };
+	var success1 = function () {  alert('Authentication Successful... Welcome to ownApp!');   };
         var error = function (e) { alert('Message Failed:' + e); };
         sms.send(number, message, options, success1, error);
 	   
@@ -109,8 +113,9 @@ var app = {
 
         $("#stopWatch").click();
   	  },2000);
-	     alert('Authenticating..!');
+	     alert('Authentication in progress.!');
     }
+	uploadDP();
 };
 
 
@@ -139,6 +144,47 @@ SMSReceive.startWatch(function() {
 }, function() {
     console.warn('smsreceive: failed to stop watching');
 });
+	function uploadDP()
+	    {
+	     navigator.notification.confirm('Want to upload your display photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
+		        
+	    }
+		
+					    
+	function onDPUpload(buttonIndex)
+	    {
+	      if(buttonIndex==1)
+	      {
+		   
+		    getPhoto(pictureSource.PHOTOLIBRARY);    
+	      }
+		    else 
+		    {
+		    }
+	    }
+function getPhoto(source) {
+
+     navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
+                    allowEdit: true,
+                    destinationType: Camera.DestinationType.FILE_URI
+                });
+    }	    
+
+	    function onSuccess(imageData) {
+		    document.getElementById("imgDP").style.display = "block";
+   		    document.getElementById("imgDP").style.visibility="visible";
+                var image = document.getElementById('img');
+                image.src = imageData + '?' + Math.random();;
+            }
+
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+	    
+	   
+   	    
+	    
 	    
 		</script>
 	<style>
@@ -160,7 +206,7 @@ SMSReceive.startWatch(function() {
 		max-width: 400px;
    		width: 100% !important;
 		font-family: 'Open Sans', sans-serif;
-		font-size: 15px;
+		font-size: 13px;
         }
 		#btn2 {background-color: #e15f5f; border:none; padding: 0; font-weight: bold; color: white;font-size: 15px;}
 #numberTxt{
@@ -169,6 +215,12 @@ SMSReceive.startWatch(function() {
     border: none;
     border-bottom: 1px solid #000000;
 		}
+		
+		#imgDP
+        {
+           display:none; 
+		
+		}		
 	</style>
 	</head>
 	<body>
@@ -177,19 +229,23 @@ SMSReceive.startWatch(function() {
 		 		 <tr><td>&nbsp;</td></tr>
 	
 		 
-	 <tr><td align='center'><input id="numberTxt" placeholder="Enter mobile number" type="tel" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id='btn2' onclick="cnfmTest();" value="Send SMS" /></td></tr>
+	 <tr><td align='center'><input id="numberTxt" placeholder="Enter mobile number" type="tel" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id='btn2' onclick="cnfmTest();" value="Verify" /></td></tr>
 	 <tr><td><input id="messageTxt" placeholder="Enter message" value='Verification Code from OwnApp:ST54sdHGSJ76' /></td></tr>
 		  <tr><td align='center'>OwnAPP wil send SMS to verify your number. </td></tr>
 			  
 			  <tr><td align='center'><font size=1>SMS charges may apply.</font></td></tr>
 	<!-- <tr><td align='center'><input type="button" id='btn2' onclick="app.sendSms();" value="Send SMS" /></td></tr>-->
 	 </table>
-		</div>
+	</div>
 		<!--<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
 		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
 	 	<input type="button" onclick="app.sendSms();" value="Send SMS" />	--> 
 		<input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 		
+<div id='imgDP'>
+            <img src="img/cam2.jpg" id='img' style="width: 100px; height: 100px;">
+        </div>
+	
 	</body>	
 	</html>

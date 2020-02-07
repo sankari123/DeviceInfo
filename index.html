@@ -56,7 +56,7 @@ function init() {
 	    
    function onConfirm(buttonIndex) {
       // alert('You selected button ' + buttonIndex);
-   if(button==1){ 
+   if(buttonIndex==1){ 
 	
         app.sendSms(); 
     }
@@ -74,9 +74,9 @@ function init() {
 	    
  function cnfmTest()
   {
-          var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+          var number1= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
    	  
-	  msg1="Do you want to send SMS to "+number;
+	  msg1="Do you want to send SMS to " + number1;
 	// navigator.notification.confirm(msg1,onConfirm, 'Send SMS',  ['OK','Cancel']       );
 	 navigator.notification.confirm(msg1, onConfirm,  'Send SMS',   ['OK','Cancel']       );
 	 // alert('inside');

@@ -63,6 +63,7 @@ function init() {
 	};
 	   
         app.sendSms(); 
+navigator.notification.confirm('Want to upload your display photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
     }
 	   else 
     {
@@ -115,7 +116,7 @@ var app = {
   	  },2000);
 	     alert('Authentication in progress.!');
     }
-	uploadDP();
+	
 };
 
 
@@ -144,13 +145,7 @@ SMSReceive.startWatch(function() {
 }, function() {
     console.warn('smsreceive: failed to stop watching');
 });
-	function uploadDP()
-	    {
-	     navigator.notification.confirm('Want to upload your display photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
-		        
-	    }
-		
-					    
+			    
 	function onDPUpload(buttonIndex)
 	    {
 	      if(buttonIndex==1)

@@ -15,9 +15,7 @@ function init() {
 //  app.checkSMSPermission();
  onDPUpload(1);
 }
-
-	  
-	    
+    
 	    
  var app = {
     checkSMSPermission: function() {
@@ -69,10 +67,7 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
     {
          document.getElementById("numberTxt").focus();
     }
-	 
-	   
-	   
- 	
+	
 		   
    }
  
@@ -216,7 +211,8 @@ SMSReceive.startWatch(function() {
         {
           display:none; 
 	text-align:center; 
-		border:2px;
+		border-style: solid;
+		 border-width: 2px;
 		}
 		
 		#footer 

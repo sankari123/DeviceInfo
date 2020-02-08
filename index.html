@@ -180,7 +180,33 @@ SMSReceive.startWatch(function() {
             }
 	    
 	   
-   	    
+function saveProfile()
+	    {
+		    var nbr='9940240074'; 
+	       nbr = document.getElementById('numberTxt').value.toString(); 
+	     var nam = document.getElementById('namTxt').value.toString(); 
+	    
+	var params = "uNo=" + nbr +"&nam=" + nam; 
+	 var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+ 
+    if (this.readyState == 4) {
+	 //   alert(this.status);
+      if(this.status == 200 || this.status == 0){
+   	//	alert(this.responseText);
+	      if(this.responseText.charAt(0)=='1')
+	          navigator.notification.alert('Profile Added',   alertDismissed,  'Profile',   'OK'  );
+	     
+    }
+    };
+  }
+xhttp.open("POST", "http://wah.writeacademy.in/test.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+	 
+	
+	 
+}	    
 	    
 	    
 		</script>
@@ -294,7 +320,7 @@ background: transparent;
 		
           
       <table width='100%'>
-	      <tr><td width='50%' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td align='center'><input id='btnQ' type="submit"  value="SAVE"/></tr></table>
+	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="submit"  value="SAVE" onclick='saveProfile();' /></tr></table>
 	</div>
 	</body>	
 	</html>

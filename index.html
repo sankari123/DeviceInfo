@@ -221,7 +221,7 @@ function saveProfile()
       if(this.status == 200 || this.status == 0){
     	alert(this.responseText);
 	      if(this.responseText.charAt(0)=='1')
-	        //  navigator.notification.alert('Profile Added',   alertDismissed,  'Profile',   'OK'  );
+	        navigator.notification.alert('Profile Added',   alertDismissed,  'Profile',   'OK'  );
    }
     };
   }

@@ -203,11 +203,13 @@ function saveProfile()
 xhttp.open("POST", "http://wah.writeacademy.in/test.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(params);
-	 
-	
-	 
+
 }	    
-	    
+function alertDismissed()
+	{
+//	navigator.device.exitApp();
+		//navigator.app.exitApp();
+}	    
 	    
 		</script>
 	<style>
@@ -315,13 +317,15 @@ background: transparent;
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 	</div>
 		<div id="header"></div>
-		<div id="content"> <center>Edit Profile</center><br><br><img src="images/circle.jpg" id='img' class='circle'><br>
+		<div id="content">  <center>OwnApp</center><br><br><center>Edit Profile</center><br><br><img src="images/circle.jpg" id='img' class='circle'><br>
 	    <input id='namTxt' placeholder='Enter Name' size='30'></br></div>
       <div id="footer">    
 		
           
       <table width='100%'>
+	      <form>
 	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="submit"  value="SAVE" onclick='saveProfile();' /></tr></table>
+	      </form>
 	</div>
 	</body>	
 	</html>

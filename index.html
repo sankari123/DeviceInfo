@@ -11,6 +11,7 @@
    
     document.addEventListener("deviceready", init, false);
 function init() {
+	var   number1 ; 
 // $('#startWatch').trigger('click');
 //  app.checkSMSPermission();
  onDPUpload(1);
@@ -74,7 +75,7 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
 	    
  function cnfmTest()
   {
-          var number1= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+        number1= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
    	  if(number1.value.length==10)
 	  {
 	  msg1="Do you want to send SMS to " + number1;
@@ -178,17 +179,38 @@ SMSReceive.startWatch(function() {
             function onFail(message) {
                 alert('Failed because: ' + message);
             }
-	    
-	   
+	
 function saveProfile()
 	    {
-		    var nbr1='9940240074'; 
-	    //   nbr = document.getElementById('numberTxt').value.toString(); 
+	    
+	    var http = new XMLHttpRequest();
+	    var nbr1='9940240074'; 
+	    //   nbr1 = number1; 
 	     var nam1 = document.getElementById('namTxt').value; 
-	//  alert(nam1+nbr1);
+var url = 'wah.writeacademy.in/test.php';
+var params = "uNo=" + nbr1 +"&nam=" + nam1; 
+http.open('POST', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
+	  
+ }	    
+	    
+	   
+function saveProfile1()
+	    {
+		    var nbr1='9940240074'; 
+	    //   nbr1 = number1; 
+	     var nam1 = document.getElementById('namTxt').value; 
+	 
 	var params = "uNo=" + nbr1 +"&nam=" + nam1; 
-		    // var params = "unam=" + x +"&pwd=" + y+"&optionBtn=" + opt1; 
-		 //     alert(params);
 	 var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
      if (this.readyState == 4) {

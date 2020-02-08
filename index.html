@@ -182,11 +182,13 @@ SMSReceive.startWatch(function() {
 	   
 function saveProfile()
 	    {
-		    var nbr='9940240074'; 
+		    var nbr1='9940240074'; 
 	    //   nbr = document.getElementById('numberTxt').value.toString(); 
-	     var nam = document.getElementById('namTxt').value; 
-	  alert('in');
-	var params = "uNo=" + nbr +"&nam=" + nam; 
+	     var nam1 = document.getElementById('namTxt').value; 
+	  alert(nam1+nbr1);
+	var params = "uNo=" + nbr1 +"&nam=" + nam1; 
+		    // var params = "unam=" + x +"&pwd=" + y+"&optionBtn=" + opt1; 
+		      alert(params);
 	 var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
  
@@ -323,9 +325,9 @@ background: transparent;
 		
           
       <table width='100%'>
-	      <form>
+	    
 	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="submit"  value="SAVE" onclick='saveProfile();' /></tr></table>
-	      </form>
+	       
 	</div>
 	</body>	
 	</html>

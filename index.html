@@ -189,6 +189,7 @@ function saveProfile()
 	     var nam1 = document.getElementById('namTxt').value; 
 var url = 'wah.writeacademy.in/test.php';
 var params = "uNo=" + nbr1 +"&nam=" + nam1; 
+		      alert(url);  alert(params);
 http.open('POST', url, true);
 
 //Send the proper header information along with the request
@@ -346,9 +347,9 @@ background: transparent;
 		
           
       <table width='100%'>
-	    
+	    <form>
 	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="button"  value="SAVE" onclick='saveProfile();' /></tr></table>
-	       
+	      </form>
 	</div>
 	</body>	
 	</html>

@@ -162,13 +162,13 @@ SMSReceive.startWatch(function() {
  
 
 	    function onSuccess(imageData) {
-		    document.getElementById("footer").style.display = "block";
-   		    document.getElementById("footer").style.visibility="true";
-		     document.getElementById("content").style.display = "block";
-   		    document.getElementById("content").style.visibility="true";
 		    document.getElementById("scr_1").style.display = "none";
 		    document.getElementById("scr_1").style.visibility="false";	
-
+         	    document.getElementById("footer").style.display = "block";
+   		    document.getElementById("footer").style.visibility="true";
+		    document.getElementById("content").style.display = "block";
+   		    document.getElementById("content").style.visibility="true";
+		  
    		     
                 var image = document.getElementById('img');
                 image.src = imageData + '?' + Math.random();;
@@ -250,6 +250,7 @@ background:none;
     margin:0;
     padding:0;
     cursor: pointer;
+	font-size: 15px;
 		}
 		</style>
 	</head>

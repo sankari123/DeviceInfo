@@ -185,24 +185,22 @@ function saveProfile()
 		    var nbr1='9940240074'; 
 	    //   nbr = document.getElementById('numberTxt').value.toString(); 
 	     var nam1 = document.getElementById('namTxt').value; 
-	  alert(nam1+nbr1);
+	//  alert(nam1+nbr1);
 	var params = "uNo=" + nbr1 +"&nam=" + nam1; 
 		    // var params = "unam=" + x +"&pwd=" + y+"&optionBtn=" + opt1; 
-		      alert(params);
+		 //     alert(params);
 	 var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
- 
-    if (this.readyState == 4) {
+     if (this.readyState == 4) {
 	 //   alert(this.status);
       if(this.status == 200 || this.status == 0){
    	//	alert(this.responseText);
 	      if(this.responseText.charAt(0)=='1')
 	          navigator.notification.alert('Profile Added',   alertDismissed,  'Profile',   'OK'  );
-	     
-    }
+   }
     };
   }
-xhttp.open("POST", "http://wah.writeacademy.in/test.php", true);
+xhttp.open("POST", "wah.writeacademy.in/test.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(params);
 
@@ -211,6 +209,7 @@ function alertDismissed()
 	{
 //	navigator.device.exitApp();
 		//navigator.app.exitApp();
+		alert('error');
 }	    
 	    
 		</script>

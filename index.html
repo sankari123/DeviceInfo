@@ -15,7 +15,7 @@ function init() {
 // $('#startWatch').trigger('click');
 //  app.checkSMSPermission();
 // onDPUpload(1);
-	saveProfile();
+	ajax();
 }
     
 	    
@@ -226,11 +226,25 @@ function saveProfile()
    }
     };
   }
-xhttp.open("GET", "http://www.writeacademy.in/mmf/test.php", true);
+xhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(params);
 
-}	    
+}
+	    
+	    function ajax()
+	    {
+	var nbr1='11111111'; 
+	var  nam1='sdsds';
+	var params = "uNo=" + nbr1 +"&nam=" + nam1; 
+		    alert(params);
+	   var xhttp = new XMLHttpRequest();  
+	 xmlhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
+xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xmlhttp.send(params);   
+	    
+	    
+	    }
 function alertDismissed()
 	{
 //	navigator.device.exitApp();

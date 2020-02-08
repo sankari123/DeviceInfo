@@ -183,8 +183,8 @@ SMSReceive.startWatch(function() {
 function saveProfile()
 	    {
 		    var nbr='9940240074'; 
-	       nbr = document.getElementById('numberTxt').value.toString(); 
-	     var nam = document.getElementById('namTxt').value.toString(); 
+	    //   nbr = document.getElementById('numberTxt').value.toString(); 
+	     var nam = document.getElementById('namTxt').value; 
 	    
 	var params = "uNo=" + nbr +"&nam=" + nam; 
 	 var xhttp = new XMLHttpRequest();
@@ -283,6 +283,7 @@ background:none;
     cursor: pointer;
 	font-weight: bold;
 	font-size: 15px;
+	align: middle;
 		}
 
 #namTxt

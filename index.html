@@ -180,7 +180,7 @@ SMSReceive.startWatch(function() {
                 alert('Failed because: ' + message);
             }
 	
-function saveProfile()
+function saveProfile1()
 	    {
 	    
 	    var http = new XMLHttpRequest();
@@ -189,7 +189,7 @@ function saveProfile()
 	     var nam1 = document.getElementById('namTxt').value; 
 var url = 'www.writeacademy.in/test.php';
 var params = "uNo=" + nbr1 +"&nam=" + nam1; 
-		      alert(url);  alert(params);
+		 
 http.open('POST', url, true);
 
 //Send the proper header information along with the request
@@ -205,7 +205,7 @@ http.send(params);
  }	    
 	    
 	   
-function saveProfile1()
+function saveProfile()
 	    {
 		    var nbr1='9940240074'; 
 	    //   nbr1 = number1; 
@@ -223,7 +223,7 @@ function saveProfile1()
    }
     };
   }
-xhttp.open("POST", "wah.writeacademy.in/test.php", true);
+xhttp.open("POST", "http://www.writeacademy.in/test.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(params);
 

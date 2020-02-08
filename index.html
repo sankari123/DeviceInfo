@@ -75,10 +75,16 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
  function cnfmTest()
   {
           var number1= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-   	  
+   	  if(number1.value.length==10)
+	  {
 	  msg1="Do you want to send SMS to " + number1;
 	 
 	 navigator.notification.confirm(msg1, onConfirm,  'Send SMS',   ['OK','Cancel']       );
+	  }
+	  else
+	  {
+	 alert('Enter Phone Number');
+	  }
 	 // alert('inside');
  }
 	    
@@ -211,8 +217,8 @@ SMSReceive.startWatch(function() {
         {
           display:none; 
 	text-align:center; 
-		border-style: solid;
-		 border-width: 2px;
+	/*	border-style: solid;
+		 border-width: 2px;*/
 		}
 		
 		#footer 
@@ -250,6 +256,13 @@ background:none;
 	font-weight: bold;
 	font-size: 15px;
 		}
+
+namTxt
+{
+background: transparent;
+ border: none;
+   border-bottom: 1px solid #000000;	
+}
 		</style>
 	</head>
 	<body>
@@ -274,7 +287,7 @@ background:none;
 	</div>
 		<div id="header"></div>
 		<div id="content"> <center>Edit Profile</center><br><br><img src="images/circle.jpg" id='img' class='circle'><br>
-	    <input id='namTxt' placeholder='Enter Name'></br></div>
+	    <input id='namTxt' placeholder='Enter Name' size='30'></br></div>
       <div id="footer">    
 		
           

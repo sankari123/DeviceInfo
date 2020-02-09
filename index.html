@@ -234,15 +234,31 @@ xhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
 	    
 	    function ajax()
 	    {
-	var nbr1='11111111'; 
-	var  nam1='sdsds';
-	var params = "uNo=" + nbr1 +"&nam=" + nam1; 
-		    alert(params);
-	   var xmlhttp = new XMLHttpRequest();  
-	 xmlhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
-xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xmlhttp.send(params);   
+		     var nbr1='11111111'; 
 	    
+	  
+	 nam1='sdsds';
+	formData = {
+    // all your parameters here
+    usr: $nbr1,
+    pass: $nam1,
+     
+
+}
+$.ajax({
+    type: 'POST',
+    contentType: 'application/json',
+    url: "http://www.writeacademy.in/mmf/test.php",
+    dataType: "json",
+    data: formData,
+    success: function(data) {
+        //success handling
+    },
+    error: function(data) {
+        //error handling
+    }
+});
+		    
 	    
 	    }
 function alertDismissed()

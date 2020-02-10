@@ -239,20 +239,21 @@ xhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
 	   // $("#btnQ").on("submit", function(event) {
             //    event.preventDefault();
 
-	    function ajax()
+	    function ajax();
 	    {
-	    
-                $.ajax({
-                    type: "POST",
-                     url: "http://www.writeacademy.in/mmf/test.php",   
-                      data:{uNo:nbr1, nam:nam1},
-                    success: function(data) {
-                  //      $("#chatbox").append(data+"<br/>");//instead this line here you can call some function to read database values and display
-			    alert(data);
-                    },
-                });
-         //   });
-	    
+	    alert('yes')
+               $.ajax({
+        url: "http://www.writeacademy.in/mmf/test.php?uNo=" + nbr1 +"&nam=" + nam1,
+        type: 'POST',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            alert(data.username);
+        },
+        error: function () {
+            alert("Error");
+        }
+    });
 	    }   
 		</script>
 	<style>

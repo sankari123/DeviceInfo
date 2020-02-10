@@ -73,7 +73,7 @@
 	
   <gap:splash src="splash.png" gap:platform="android" gap:qualifier="port-ldpi"/>
    
- 
+ <plugin name="cordova-plugin-whitelist" spec="1" />
   <access origin="tel:*" launch-external="yes" />
   <access origin="mailto:*" launch-external="yes" />
   <access origin="*" subdomains="true" />

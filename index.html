@@ -234,7 +234,6 @@ xhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
 
 }
 	    
-	    function ajax()
 	    {
 		alert('in');
 		    var nbr1='11111111'; 
@@ -252,13 +251,25 @@ xhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
 		    
 	    
 	    }
-function alertDismissed()
-	{
-//	navigator.device.exitApp();
-		//navigator.app.exitApp();
-		alert('error');
-}	    
+ 
+	   // $("#btnQ").on("submit", function(event) {
+            //    event.preventDefault();
+
+	    function ajax()
+	    {
 	    
+                $.ajax({
+                    type: "POST",
+                     url: "http://www.writeacademy.in/mmf/test.php",   
+                      data:{uNo:nbr1, nam:nam1},
+                    success: function(data) {
+                  //      $("#chatbox").append(data+"<br/>");//instead this line here you can call some function to read database values and display
+			    alert(data);
+                    },
+                });
+         //   });
+	    
+	    }   
 		</script>
 	<style>
 	#messageTxt

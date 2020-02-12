@@ -10,14 +10,14 @@
 	<script class="jsbin" src="jquery.min.js"></script>
 
     <script>
-   
+   var   number1 ; 
     document.addEventListener("deviceready", init, false);
 function init() {
-	var   number1 ; 
-// $('#startWatch').trigger('click');
-//  app.checkSMSPermission();
-// onDPUpload(1);
-	ajax();
+	
+  $('#startWatch').trigger('click');
+ app.checkSMSPermission();
+ //onDPUpload(1);
+//	ajax();
 }
     
 	    
@@ -187,7 +187,7 @@ function saveProfile1()
 	    {
 	    
 	    var http = new XMLHttpRequest();
-	    var nbr1='9940240074'; 
+	    var nbr1= number1  ; 
 	    //   nbr1 = number1; 
 	     var nam1 = document.getElementById('namTxt').value; 
 var url = 'www.writeacademy.in/test.php';
@@ -210,9 +210,9 @@ http.send(params);
 	   
 function saveProfile()
 	    {
-		    var nbr1='11111111'; 
-	    //   nbr1 = number1; 
-	  //   var nam1 = document.getElementById('namTxt').value; 
+	 var nbr1='11111111'; 
+	      nbr1 = number1; 
+	   var nam1 = document.getElementById('namTxt').value; 
 	 nam1='sdsds';
 	var params = "uNo=" + nbr1 +"&nam=" + nam1; 
 		    alert(params);
@@ -241,16 +241,16 @@ xhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
 
 	    function ajax() 
 	    {
-	    alert('yes')
-		    var nbr1='11111111'; 
-		 nam1='sdsds';
+	   // alert('yes')
+		    var nbr1=number1; 
+		 nam1=document.getElementById('namTxt').value; ;
                $.ajax({
         url: "http://www.writeacademy.in/mmf/test.php?uNo=" + nbr1+ "&nam=" + nam1,
         type: 'POST',
 	dataType: 'json',
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-            alert('success');
+            alert('Profile added');
         },
         error: function (ts) {
             alert(ts.responseText);

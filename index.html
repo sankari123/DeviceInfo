@@ -57,7 +57,7 @@ function init() {
 	    
 	    
    function onConfirm(buttonIndex) {
-      // alert('You selected button ' + buttonIndex);
+       alert('You selected button ' + buttonIndex);
    if(buttonIndex==1){ 
 	var hideKeyboard = function() {
     	    document.activeElement.blur();
@@ -78,7 +78,8 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
 	    
  function cnfmTest()
   {
-       var  number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+      alert('inside');
+	  var  number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
 	 
    	  if(number2.value.length==10)
 	  {
@@ -90,7 +91,7 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
 	  {
 	 alert('Enter Phone Number');
 	  }
-	 // alert('inside');
+	
  }
 	    
 	    

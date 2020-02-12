@@ -81,7 +81,7 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
      
 	  var number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
 	  //alert(number2);
-	  number1=number2;
+	
    	  if(number2.length==10)
 	  {
 	  msg1="Do you want to send SMS to " + number2;
@@ -101,7 +101,7 @@ var app = {
   var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
    var message = document.getElementById('messageTxt').value;
         //CONFIGURATION
-	    
+	      number1=number;
         var options = {
             replaceLineBreaks: false, // true to replace \n by a new line, false by default
             android: {

@@ -78,10 +78,10 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
 	    
  function cnfmTest()
   {
-      alert('inside');
-	  var  number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-	 
-   	  if(number2.value.length==10)
+     
+	  var number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+	  alert(number2);
+   	  if(number2.length==10)
 	  {
 	  msg1="Do you want to send SMS to " + number2;
 	 

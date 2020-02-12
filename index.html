@@ -78,10 +78,11 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
 	    
  function cnfmTest()
   {
-        number1= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+       var  number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+	  number1=number2; 
    	  if(number1.value.length==10)
 	  {
-	  msg1="Do you want to send SMS to " + number1;
+	  msg1="Do you want to send SMS to " + number2;
 	 
 	 navigator.notification.confirm(msg1, onConfirm,  'Send SMS',   ['OK','Cancel']       );
 	  }
@@ -208,31 +209,7 @@ http.send(params);
  }	    
 	    
 	   
-function saveProfile()
-	    {
-	 var nbr1='11111111'; 
-	      nbr1 = number1; 
-	   var nam1 = document.getElementById('namTxt').value; 
-	 nam1='sdsds';
-	var params = "uNo=" + nbr1 +"&nam=" + nam1; 
-		    alert(params);
-	 var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-     if (this.readyState == 4) {
-	    alert(this.status);
-	   // alert(this.responseText);
-      if(this.status == 200 || this.status == 0){
-    	//alert(this.responseText);
-	      
-	        navigator.notification.alert('Profile Added',   alertDismissed,  'Profile',   'OK'  );
-   }
-    };
-  }
-xhttp.open("POST", "http://www.writeacademy.in/mmf/test.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send(params);
-
-}
+ 
 	    
 	   
  

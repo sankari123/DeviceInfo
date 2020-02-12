@@ -194,9 +194,11 @@ SMSReceive.startWatch(function() {
 
 	    function ajax() 
 	    {
-	   // alert('yes')
+	   alert('yes')
 		    var nbr1=number1; 
-		 nam1=document.getElementById('namTxt').value; ;
+		var nam1=document.getElementById('namTxt').value; 
+		    alert(nbr1);
+		        alert(nam1);
                $.ajax({
         url: "http://www.writeacademy.in/mmf/test.php?uNo=" + nbr1+ "&nam=" + nam1,
         type: 'POST',

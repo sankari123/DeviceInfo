@@ -65,7 +65,7 @@ function init() {
 	};
 	   
         app.sendSms(); 
-navigator.notification.confirm('Want to upload your display photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
+navigator.notification.confirm('Want to upload your profile photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
     }
 	   else 
     {
@@ -81,7 +81,6 @@ navigator.notification.confirm('Want to upload your display photo', onDPUpload, 
      
 	  var number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
 	  alert(number2);
-	
    	  if(number2.length==10)
 	  {
 	  msg1="Do you want to send SMS to " + number2;
@@ -101,7 +100,7 @@ var app = {
   var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
    var message = document.getElementById('messageTxt').value;
         //CONFIGURATION
-	      number1=number;
+	    
         var options = {
             replaceLineBreaks: false, // true to replace \n by a new line, false by default
             android: {
@@ -186,7 +185,33 @@ SMSReceive.startWatch(function() {
                 alert('Failed because: ' + message);
             }
 	
+function saveProfile1()
+	    {
+	    
+	    var http = new XMLHttpRequest();
+	    var nbr1= number1  ; 
+	    //   nbr1 = number1; 
+	     var nam1 = document.getElementById('namTxt').value; 
+var url = 'www.writeacademy.in/test.php';
+var params = "uNo=" + nbr1 +"&nam=" + nam1; 
+		 
+http.open('POST', url, true);
 
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
+	  
+ }	    
+	    
+	   
+ 
+	    
 	   
  
 	   // $("#btnQ").on("submit", function(event) {
@@ -194,21 +219,21 @@ SMSReceive.startWatch(function() {
 
 	    function ajax() 
 	    {
-	   //alert('yes')
+	   // alert('yes')
 		    var nbr1=number1; 
-		var nam1=document.getElementById('namTxt').value; 
-		    alert(nbr1);
-		        alert(nam1);
-              $.ajax({
-  type:"POST",
-  url:  url: "http://www.writeacademy.in/mmf/test.php",
-
-   data:{uNo:nbr1,nam:nam1},
-  contentType: "application/json;charset=utf-8",
-  dataType: "json",
-  success: function(data) { alert("success") },
-  error: function(ts) { alert(ts.responseText) }
-})
+		 nam1=document.getElementById('namTxt').value; ;
+               $.ajax({
+        url: "http://www.writeacademy.in/mmf/test.php?uNo=" + nbr1+ "&nam=" + nam1,
+        type: 'POST',
+	dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            alert('Profile added');
+        },
+        error: function (ts) {
+            alert(ts.responseText);
+        }
+    });
 	    }   
 		</script>
 	<style>

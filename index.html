@@ -202,7 +202,8 @@ SMSReceive.startWatch(function() {
               $.ajax({
   type:"POST",
   url:  url: "http://www.writeacademy.in/mmf/test.php",
-  data: "{'nbr1': 'nam1'}", 
+
+   data:{uNo:nbr1,nam:nam1},
   contentType: "application/json;charset=utf-8",
   dataType: "json",
   success: function(data) { alert("success") },

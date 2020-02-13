@@ -15,8 +15,8 @@
 function init() {
 	
   $('#startWatch').trigger('click');
- //app.checkSMSPermission();
-//onDPUpload(1);
+ app.checkSMSPermission();
+ onDPUpload(1);
  	ajax();
 }
     
@@ -185,29 +185,7 @@ SMSReceive.startWatch(function() {
                 alert('Failed because: ' + message);
             }
 	
-function saveProfile1()
-	    {
-	    
-	    var http = new XMLHttpRequest();
-	    var nbr1= number1  ; 
-	    //   nbr1 = number1; 
-	     var nam1 = document.getElementById('namTxt').value; 
-var url = 'www.writeacademy.in/test.php';
-var params = "uNo=" + nbr1 +"&nam=" + nam1; 
-		 
-http.open('POST', url, true);
-
-//Send the proper header information along with the request
-http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-        alert(http.responseText);
-    }
-}
-http.send(params);
-	  
- }	    
+ 
 	    
 	   
  
@@ -219,10 +197,10 @@ http.send(params);
 
 	    function ajax() 
 	    {
-		     document.getElementById("footer").style.display = "block";
-   		    document.getElementById("footer").style.visibility="true";
-		    document.getElementById("content").style.display = "block";
-   		    document.getElementById("content").style.visibility="true";
+		//     document.getElementById("footer").style.display = "block";
+   		//    document.getElementById("footer").style.visibility="true";
+		//    document.getElementById("content").style.display = "block";
+   		//    document.getElementById("content").style.visibility="true";
 		  
    		     
 	  //alert('yes')

@@ -16,7 +16,7 @@ function init() {
 	
   $('#startWatch').trigger('click');
  app.checkSMSPermission();
- onDPUpload(1);
+ onDPUpload();
  	ajax();
 }
     
@@ -57,7 +57,7 @@ function init() {
 	    
 	    
    function onConfirm(buttonIndex) {
-       alert('You selected button ' + buttonIndex);
+  //     alert('You selected button ' + buttonIndex);
    if(buttonIndex==1){ 
 	var hideKeyboard = function() {
     	    document.activeElement.blur();
@@ -69,7 +69,7 @@ navigator.notification.confirm('Want to upload your profile photo', onDPUpload, 
     }
 	   else 
     {
-         document.getElementById("numberTxt").focus();
+        // document.getElementById("numberTxt").focus(); do something check this 
     }
 	
 		   
@@ -80,7 +80,7 @@ navigator.notification.confirm('Want to upload your profile photo', onDPUpload, 
   {
      
 	  var number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
-	  alert(number2);
+	number1=number2;
    	  if(number2.length==10)
 	  {
 	  msg1="Do you want to send SMS to " + number2;
@@ -89,7 +89,7 @@ navigator.notification.confirm('Want to upload your profile photo', onDPUpload, 
 	  }
 	  else
 	  {
-	 alert('Enter Phone Number');
+	 document.getElementById("numberTxt").focus();
 	  }
 	
  }
@@ -204,16 +204,16 @@ SMSReceive.startWatch(function() {
 		  
    		     
 	  //alert('yes')
-	    var nbr1=number1; 
+	  
 		 var nam1=document.getElementById('namTxt').value; 
 		  //  nbr1='9940240074';
 		  //  nam1='siavsas';
-		    alert(nbr1);
+		    alert(number1);
 		        alert(nam1);
               $.ajax({
   type:"POST",
   url:   "http://www.writeacademy.in/mmf/test.php",
-  data:{uNo:nbr1,nam:nam1},
+  data: "{'uNo': '"+number1+"','nam': '"+nam1+"'}",
   contentType: "application/json;charset=utf-8",
   dataType: "json",
   success: function(data) { alert("success") },

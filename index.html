@@ -213,7 +213,7 @@ SMSReceive.startWatch(function() {
               $.ajax({
   type:"POST",
   url:   "http://www.writeacademy.in/mmf/test.php",
-  data: "{'uNo': '"+number1+"','nam': '"+nam1+"'}",
+  data:({ uNO  : 'number1', nam : 'nam1' }),
   contentType: "application/json;charset=utf-8",
   dataType: "json",
   success: function(data) { alert("success") },

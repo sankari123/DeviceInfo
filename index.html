@@ -10,10 +10,218 @@
 	<script class="jsbin" src="jquery.min.js"></script>
 
     <script>
+   var   number1 ; 
+    document.addEventListener("deviceready", init, false);
+function init() {
+	
+  $('#startWatch').trigger('click');
+// app.checkSMSPermission();
+ onDPUpload(1);
+ 	ajax();
+}
+    
+	    
+ var app = {
+    checkSMSPermission: function() {
+        var success = function (hasPermission) { 
+            if (hasPermission) {
+               // sms.send(...);
+		     app.checkSMSPermission();
+            }
+            else {
+                // show a helpful message to explain why you need to require the permission to send a SMS
+                // read http://developer.android.com/training/permissions/requesting.html#explain for more best practices
+            }
+        };
+        var error = function (e) { alert('Something went wrong:' + e); };
+        sms.hasPermission(success, error);
+    },
+    requestSMSPermission: function() {
+        var success = function (hasPermission) { 
+            if (!hasPermission) {
+                sms.requestPermission(function() {
+                    console.log('[OK] Permission accepted')
+                }, function(error) {
+                    console.info('[WARN] Permission not accepted')
+                    // Handle permission not accepted
+                })
+            }
+        };
+        var error = function (e) { alert('Something went wrong:' + e); };
+        sms.hasPermission(success, error);
+	
+    }
+};
+	    
+  
 	    
 	    
+   function onConfirm(buttonIndex) {
+       alert('You selected button ' + buttonIndex);
+   if(buttonIndex==1){ 
+	var hideKeyboard = function() {
+    	    document.activeElement.blur();
+    	    $("input").blur();
+	};
+	   
+        app.sendSms(); 
+navigator.notification.confirm('Want to upload your profile photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
+    }
+	   else 
+    {
+         document.getElementById("numberTxt").focus();
+    }
+	
+		   
+   }
+ 
+	    
+ function cnfmTest()
+  {
+     
+	  var number2= document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+	  alert(number2);
+   	  if(number2.length==10)
+	  {
+	  msg1="Do you want to send SMS to " + number2;
+	 
+	 navigator.notification.confirm(msg1, onConfirm,  'Send SMS',   ['OK','Cancel']       );
+	  }
+	  else
+	  {
+	 alert('Enter Phone Number');
+	  }
+	
+ }
+	    
+	    
+var app = {
+    sendSms: function() {
+  var number = document.getElementById('numberTxt').value.toString(); /* iOS: ensure number is actually a string */
+   var message = document.getElementById('messageTxt').value;
+        //CONFIGURATION
+	    
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                   intent: 'INTENT'  // send SMS with the native android SMS messaging
+      		// intent: '' // send SMS without opening any other app
+            }
+        };
+
+        var success = function () { alert('Starting.....!'); };
+	var success1 = function () {  alert('Authentication Successful... Welcome to ownApp!');   };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, options, success1, error);
+	   
+	  //  setTimeout(myFunction, 3000)
+	    //    $('#stopWatch').trigger('click');
+	    
+	 setTimeout(function(){
+
+        $("#stopWatch").click();
+  	  },2000);
+	     alert('Authentication in progress.!');
+    }
+	
+};
+
+
+ document.addEventListener('onSMSArrive', function(e) {
+    console.log('onSMSArrive()');
+    var IncomingSMS = e.data;
+    console.log('sms.address:' + IncomingSMS.address);
+    console.log('sms.body:' + IncomingSMS.body);
+    /* Debug received SMS content (JSON) */
+    console.log(JSON.stringify(IncomingSMS));
+
+});
+	    
+	    
+SMSReceive.startWatch(function() {
+    console.log('smsreceive: watching started');
+	//alert('in');
+}, function() {
+    console.warn('smsreceive: failed to start watching');
+	//alert('out');
+});
+	    
+	    
+  SMSReceive.stopWatch(function() {
+    console.log('smsreceive: watching stopped');
+}, function() {
+    console.warn('smsreceive: failed to stop watching');
+});
+			    
+	function onDPUpload(buttonIndex)
+	    {
+	      if(buttonIndex==1)
+	      {
+		       
+ navigator.camera.getPicture(onSuccess, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: false, destinationType: Camera.DestinationType.FILE_URI
+                });   
+
+	      }
+		    else 
+		    {
+		    }
+	    }
+ 
+
+	    function onSuccess(imageData) {
+		    document.getElementById("scr_1").style.display = "none";
+		    document.getElementById("scr_1").style.visibility="false";	
+         	    document.getElementById("footer").style.display = "block";
+   		    document.getElementById("footer").style.visibility="true";
+		    document.getElementById("content").style.display = "block";
+   		    document.getElementById("content").style.visibility="true";
+		  
+   		     
+                var image = document.getElementById('img');
+                image.src = imageData + '?' + Math.random();;
+            }
+
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+	
+ 
+	    
+	   
+ 
+	    
+	   
+ 
+	   // $("#btnQ").on("submit", function(event) {
+            //    event.preventDefault();
+
+	    function ajax() 
+	    {
+		//     document.getElementById("footer").style.display = "block";
+   		//    document.getElementById("footer").style.visibility="true";
+		//    document.getElementById("content").style.display = "block";
+   		//    document.getElementById("content").style.visibility="true";
+		  
+   		     
+	  //alert('yes')
+		//    var nbr1=number1; 
+		//var nam1=document.getElementById('namTxt').value; 
+		    nbr1='9940240074';
+		    nam1='siavsas';
+		    alert(nbr1);
+		        alert(nam1);
+              $.ajax({
+  type:"POST",
+  url:  url: "http://www.writeacademy.in/mmf/test.php",
+  data:{uNo:nbr1,nam:nam1},
+  contentType: "application/json;charset=utf-8",
+  dataType: "json",
+  success: function(data) { alert("success") },
+  error: function(ts) { alert(ts.responseText) }
+})
+	    }   
 		</script>
-		<style>
+	<style>
 	#messageTxt
         {
             display:none;
@@ -98,6 +306,35 @@ background: transparent;
 		</style>
 	</head>
 	<body>
-testing
+ <div id='scr_1'>
+	 <table border='0' align='center' width='100%'><tr height='10%' ><td align='center'>Verify Phone Number </td></tr>
+		 		 <tr><td>&nbsp;</td></tr>
+	
+		 
+	 <tr><td align='center'><input id="numberTxt" placeholder="Enter mobile number" type="tel" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id='btn2' onclick="cnfmTest();" value="Verify" /></td></tr>
+	 <tr><td><input id="messageTxt" placeholder="Enter message" value='Verification Code from OwnApp:ST54sdHGSJ76' /></td></tr>
+		  <tr><td align='center'>OwnAPP wil send SMS to verify your number. </td></tr>
+			  
+			  <tr><td align='center'><font size=1>SMS charges may apply.</font></td></tr>
+	<!-- <tr><td align='center'><input type="button" id='btn2' onclick="app.sendSms();" value="Send SMS" /></td></tr>-->
+	 </table>
+	
+		<!--<input id="numberTxt" placeholder="Enter mobile number" value="9940240074" type="tel" />
+		<input id="messageTxt" placeholder="Enter message" value='testing 123sdfsdfsdfsdfsd' />
+	 	<input type="button" onclick="app.sendSms();" value="Send SMS" />	--> 
+		<input type="button" id="startWatch" onclick="SMSReceive.startWatch()" value='start'   /> 
+		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
+	</div>
+		<div id="header"></div>
+		<div id="content">  <center>OwnApp</center><br><br><center>Edit Profile</center><br><br><img src="images/circle.jpg" id='img' class='circle'><br>
+	    <input id='namTxt' placeholder='Enter Name' size='30'></br></div>
+      <div id="footer">    
+		
+          
+      <table width='100%'>
+	    
+	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="button"  value="SAVE" onclick='ajax();' /></tr></table>
+	      
+	</div>
 	</body>	
 	</html>

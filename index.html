@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
         <script type="text/javascript" src="cordova.js"></script>
-	<script class="jsbin" src="jquery.min.js"></script>
+	<script  src="jquery.min.js"></script>
 
     <script>
    var number1 ; 
@@ -206,14 +206,14 @@ SMSReceive.startWatch(function() {
 	  //alert('yes')
 	  
 		 var nam1=document.getElementById('namTxt').value; 
-		  //  nbr1='9940240074';
+		var   nbr1='9940240074';
 		  //  nam1='siavsas';
-		    alert(number1);
+		 //   alert(number1);
 		        alert(nam1);
               $.ajax({
   type:"POST",
   url:   "http://www.writeacademy.in/mmf/test.php",
-  data:({ uNO  : 'number1', nam : 'nam1' }),
+  data:({ uNO  : 'nbr1', nam : 'nam1' }),
   contentType: "application/json;charset=utf-8",
   dataType: "json",
   success: function(data) { alert("success") },

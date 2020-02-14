@@ -17,7 +17,7 @@ function init() {
   $('#startWatch').trigger('click');
  app.checkSMSPermission();
  onDPUpload();
- 	ajax();
+ //	ajaxCal();
 }
     
 	    
@@ -195,7 +195,7 @@ SMSReceive.startWatch(function() {
 	   // $("#btnQ").on("submit", function(event) {
             //    event.preventDefault();
 
-	    function ajax() 
+	    function ajaxCal() 
 	    {
 		//     document.getElementById("footer").style.display = "block";
    		//    document.getElementById("footer").style.visibility="true";
@@ -346,7 +346,7 @@ background: transparent;
           <form>
       <table width='100%'>
 	    
-	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="button"  value="SAVE" onclick='ajax();' /></tr></table>
+	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="button"  value="SAVE" onclick='ajaxCal();' /></tr></table>
 	      </form>  
 	</div>
 	</body>	

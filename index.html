@@ -7,7 +7,8 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
         <script type="text/javascript" src="cordova.js"></script>
-	  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script  type="text/javascript" src="jquery.min.js"></script>
+
  
     <script>
   
@@ -203,35 +204,9 @@ SMSReceive.startWatch(function() {
    		//    document.getElementById("content").style.visibility="true";
 		  
    		     
-	  //alert('yes')
+ alert('yes')
 	  
-		 var nam1=document.getElementById('namTxt').value; 
-		var   nbr1='9940240074';
-		  //  nam1='siavsas';
-		 //   alert(number1);
-		        alert(nam1);
-             var dataString="uNO="+nbr1+"&nam="+nam1;
-    	if(nam1.length>0)
-		{
-			$.ajax({
-				type: "POST",
-				url: url,
-				data: dataString,
-				crossDomain: true,
-				cache: false,
-				success: function(data){
-					if(data=="success")
-					{
-						alert(data);
-					}
-					else 
-					{
-						alert("Login error");
-						 
-					}
-				}
-			});
-		}
+		
 	    }   
 		</script>
 	<style>

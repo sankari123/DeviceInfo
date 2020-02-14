@@ -15,7 +15,7 @@
 function init() {
 	
   $('#startWatch').trigger('click');
-// app.checkSMSPermission();
+ app.checkSMSPermission();
  onDPUpload(1);
  	ajax();
 }
@@ -204,15 +204,15 @@ SMSReceive.startWatch(function() {
 		  
    		     
 	  //alert('yes')
-		//    var nbr1=number1; 
-		//var nam1=document.getElementById('namTxt').value; 
-		    nbr1='9940240074';
-		    nam1='siavsas';
+	    var nbr1=number1; 
+		 var nam1=document.getElementById('namTxt').value; 
+		  //  nbr1='9940240074';
+		  //  nam1='siavsas';
 		    alert(nbr1);
 		        alert(nam1);
               $.ajax({
   type:"POST",
-  url:  url: "http://www.writeacademy.in/mmf/test.php",
+  url:   "http://www.writeacademy.in/mmf/test.php",
   data:{uNo:nbr1,nam:nam1},
   contentType: "application/json;charset=utf-8",
   dataType: "json",

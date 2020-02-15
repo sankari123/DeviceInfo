@@ -198,7 +198,10 @@ SMSReceive.startWatch(function() {
 
 	    function ajaxCal() 
 	    {
-		 var params= "uNO="+nbr1+"&nam="+nam1;
+		
+		    var nbr1='9940240074';
+		    var nam1=document.getElementById('namTxt').value; 
+		    var params= "uNO="+nbr1+"&nam="+nam1;
 	 // var params = "unam=" + x +"&pwd=" + y+"&optionBtn=" + opt1; 
 	 var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {

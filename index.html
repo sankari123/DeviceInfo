@@ -185,10 +185,12 @@ function onError(err) {
    		    document.getElementById("content").style.visibility="true";
 		   var image = document.getElementById('img');
 		   image.src = imageURI + '?' + Math.random();
-    		 upl(imageURI);
+    		 // upl(imageURI);
 			 
             }
 	    
+	    
+    
 	    
 	    function upl(imageURI)
 	    {
@@ -243,8 +245,8 @@ function fail(error) {
             //    event.preventDefault();
 function ajaxCal() 
 	    {
-		    alert('ajax');
-  var nbr1='9940240074';
+		   upl(imageURI);
+ 		    var nbr1='9940240074';
 		    var nam1=document.getElementById('namTxt').value; 
 		    var params= "uNO="+nbr1+"&nam="+nam1;
 

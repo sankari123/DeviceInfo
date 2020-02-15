@@ -179,7 +179,9 @@ function onError(err) {
    		    document.getElementById("footer").style.visibility="true";
 		    document.getElementById("content").style.display = "block";
    		    document.getElementById("content").style.visibility="true";
-		  
+		   var image = document.getElementById('img');
+                image.src = imageData + '?' + Math.random();;
+            }
    		     
      	    var options = new FileUploadOptions();
             options.fileKey = "file";

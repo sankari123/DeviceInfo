@@ -158,9 +158,8 @@ SMSReceive.startWatch(function() {
 	    {
 	      if(buttonIndex==1)
 	      {
-		       
- navigator.camera.getPicture(onSuccess, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: false, destinationType: Camera.DestinationType.FILE_URI
-                });   
+var cameraOptions = { quality: 100, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY       	}     
+    		navigator.camera.getPicture(uploadPhoto, onError, cameraOptions);
 
 	      }
 		    else 
@@ -168,8 +167,12 @@ SMSReceive.startWatch(function() {
 		    }
 	    }
  
+function onError(err) {
+            alert(error);
+        }
 
-	    function onSuccess(imageData) {
+	    
+	    function uploadPhoto(imageURI) {
 		    document.getElementById("scr_1").style.display = "none";
 		    document.getElementById("scr_1").style.visibility="false";	
          	    document.getElementById("footer").style.display = "block";
@@ -178,34 +181,22 @@ SMSReceive.startWatch(function() {
    		    document.getElementById("content").style.visibility="true";
 		  
    		     
-                var image = document.getElementById('img');
-                image.src = imageData + '?' + Math.random();
-		    
-		    var options = new FileUploadOptions();
-	    options.fileKey="file";
-   	 options.fileName=imageData.substr(imageData.lastIndexOf('/')+1)+'.png';
-    options.mimeType="text/plain";
-
-    var params = new Object();
-
-    options.params = params;
-
-    var ft = new FileTransfer();
-    ft.upload(imageData, encodeURI("http://www.writeacademy.in/mmf/upload_ownapp.php"), win, fail, options);
+     var options = new FileUploadOptions();
+            options.fileKey = "file";
+            options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
+            options.mimeType = "image/jpeg";
+            var ft = new FileTransfer();
+            ft.upload(imageURI, "http://www.writeacademy.in/mmf/upload_ownapp.php",
+                function(result) {
+                    console.log(JSON.stringify(result));
+                },
+                function(error) {
+                    console.log(JSON.stringify(error));
+                }, options);
 			    
 		    
             }
-function win(r) {
-    alert("Code = " + r.responseCode);
-    console.log("Response = " + r.response);
-    console.log("Sent = " + r.bytesSent);
-}
 
-function fail(error) {
-    alert("An error has occurred: Code = " + error.code);
-    console.log("upload error source " + error.source);
-    console.log("upload error target " + error.target);
-}
 	    
 	    
 

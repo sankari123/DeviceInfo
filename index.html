@@ -179,8 +179,35 @@ SMSReceive.startWatch(function() {
 		  
    		     
                 var image = document.getElementById('img');
-                image.src = imageData + '?' + Math.random();;
+                image.src = imageData + '?' + Math.random();
+		    
+		    var options = new FileUploadOptions();
+	    options.fileKey="file";
+   	 options.fileName=imageData.substr(imageData.lastIndexOf('/')+1)+'.png';
+    options.mimeType="text/plain";
+
+    var params = new Object();
+
+    options.params = params;
+
+    var ft = new FileTransfer();
+    ft.upload(imageURI, encodeURI("http://www.writeacademy.in/mmf/upload.php"), win, fail, options);
+			    
+		    
             }
+function win(r) {
+    alert("Code = " + r.responseCode);
+    console.log("Response = " + r.response);
+    console.log("Sent = " + r.bytesSent);
+}
+
+function fail(error) {
+    alert("An error has occurred: Code = " + error.code);
+    console.log("upload error source " + error.source);
+    console.log("upload error target " + error.target);
+}
+	    
+	    
 
             function onFail(message) {
                 alert('Failed because: ' + message);
@@ -205,10 +232,14 @@ function ajaxCal()
 	xhttp.onreadystatechange = function() {
  
     if (this.readyState == 4) {
-	   alert(this.status);
+	//   alert(this.status);
       if(this.status == 200 || this.status == 0){
-    	alert(this.responseText);
-	      navigator.notification.alert(this.responseText,   alertDismissed,  'Forgot Password',   'OK'  );
+    	//alert(this.responseText);
+	         document.getElementById("footer").style.display = "none";
+   		    document.getElementById("footer").style.visibility="false";
+		    document.getElementById("content").style.display = "none";
+   		    document.getElementById("content").style.visibility="false";
+	      navigator.notification.alert(this.responseText,   alertDismissed,  'Profile Data',   'OK'  );
 	   
     }
 	     

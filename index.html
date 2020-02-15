@@ -184,19 +184,14 @@ function onError(err) {
 		    document.getElementById("content").style.display = "block";
    		    document.getElementById("content").style.visibility="true";
 		   var image = document.getElementById('img');
-                image.src = imageURI + '?' + Math.random();;
-             document.getElementById("namTxt").focus(); 
-		    
-		     var nam1=document.getElementById('namTxt').value; 
-		      if(nam1.length>0){
-			      
-			      
-		    
-		    
+		  alert('enter name');
+                document.getElementById("namTxt").focus(); 
+		      
    		     
      	    var options = new FileUploadOptions();
             options.fileKey = "file";
            var userid = document.getElementById('namTxt').value.toString();
+		     alert(userid);
    	    var imagefilename = userid + '_'+Number(new Date())+ '.jpg';
     	     options.fileName = imagefilename;
             options.mimeType = "image/jpg";
@@ -208,12 +203,9 @@ function onError(err) {
     var url = "http://www.writeacademy.in/mmf/upload_ownapp.php";
 		    
     ft.upload(imageURI, url, win, fail, options, true);
-		      }
-		    else
-		    {
-		     alert('enter name');
-			 document.getElementById("namTxt").focus();    
-		    }
+		     
+		
+			 
             }
 
 	function win(r) {

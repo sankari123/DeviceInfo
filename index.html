@@ -13,12 +13,13 @@
     <script>
   
     document.addEventListener("deviceready", init, false);
+	    
 function init() {
-document.getElementById("numberTxt").focus();
-  $('#startWatch').trigger('click');
- app.checkSMSPermission();
- onDPUpload();
-  ajaxCal();
+	document.getElementById("numberTxt").focus();
+ 	 $('#startWatch').trigger('click');
+	 app.checkSMSPermission();
+	 onDPUpload();
+  	ajaxCal();
 }
     
 	    
@@ -57,8 +58,8 @@ document.getElementById("numberTxt").focus();
   
 	    
 	    
-   function onConfirm(buttonIndex) {
-  //     alert('You selected button ' + buttonIndex);
+  function onConfirm(buttonIndex) {
+   
    if(buttonIndex==1){ 
 	var hideKeyboard = function() {
     	    document.activeElement.blur();
@@ -66,11 +67,11 @@ document.getElementById("numberTxt").focus();
 	};
 	   
         app.sendSms(); 
-navigator.notification.confirm('Want to upload your profile photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
+	navigator.notification.confirm('Want to upload your profile photo', onDPUpload,  'Upload',   ['OK','Cancel']       );
     }
 	   else 
     {
-        // document.getElementById("numberTxt").focus(); do something check this 
+         // document.getElementById("numberTxt").focus(); do something check this 
     }
 	
 		   
@@ -183,15 +184,22 @@ function onError(err) {
 		    document.getElementById("content").style.display = "block";
    		    document.getElementById("content").style.visibility="true";
 		   var image = document.getElementById('img');
-		     image.src = imageData + '?' + Math.random();;
-		  alert('enter name');
+		   image.src = imageData + '?' + Math.random();
+    		 upl(imageURI);
+			 
+            }
+	    
+	    
+	    function upl(imageURI)
+	    {
                 document.getElementById("namTxt").focus(); 
-		      
-   		     
-     	    var options = new FileUploadOptions();
-            options.fileKey = "file";
-           var userid = document.getElementById('namTxt').value.toString();
-		     alert('uid'+ userid);
+		   		     
+     	    	var options = new FileUploadOptions();
+            	options.fileKey = "file";
+           	var userid = document.getElementById('namTxt').value.toString();
+		  alert('uid'+ userid);
+		    
+		    
    	    var imagefilename = userid + '_'+Number(new Date())+ '.jpg';
     	     options.fileName = imagefilename;
             options.mimeType = "image/jpg";
@@ -201,12 +209,14 @@ function onError(err) {
     options.chunkedMode = false;
     var ft = new FileTransfer();
     var url = "http://www.writeacademy.in/mmf/upload_ownapp.php";
-		    
+		 
     ft.upload(imageURI, url, win, fail, options, true);
-		     
-		
-			 
-            }
+	    setTimeout(function(){
+
+        $("#stopWatch").click();
+  	  },2000);
+	     alert('Uploading photo!');
+	    }
 
 	function win(r) {
     alert("Image uploaded successfully!!");
@@ -259,6 +269,11 @@ function ajaxCal()
   xhttp.open("POST", "http://www.writeacademy.in/MMF/test.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(params);
+		    setTimeout(function(){
+
+        $("#stopWatch").click();
+  	  },2000);
+	     alert('Uploading database!');
 	 }
 		</script>
 	<style>

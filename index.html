@@ -90,7 +90,7 @@ navigator.notification.confirm('Want to upload your profile photo', onDPUpload, 
 	  }
 	  else
 	  {
-	// document.getElementById("numberTxt").focus();
+	  document.getElementById("numberTxt").focus();
 	  }
 	
  }
@@ -158,9 +158,18 @@ SMSReceive.startWatch(function() {
 	    {
 	      if(buttonIndex==1)
 	      {
+		      document.getElementById("namTxt").focus();
+		      //var nam1=document.getElementById('namTxt').value; 
+		      if(document.getElementById('namTxt').value.length>0){
 navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: false, destinationType: Camera.DestinationType.FILE_URI
                 });   
-
+		      
+		      }
+		      else
+		      {
+		      alert('enter name');
+			 document.getElementById("namTxt").focus();      
+		      }
 	      }
 		    else 
 		    {
@@ -185,8 +194,8 @@ function onError(err) {
    		     
      	    var options = new FileUploadOptions();
             options.fileKey = "file";
-           var userid = '123456';
-   	    var imagefilename = userid + Number(new Date()) + ".jpg";
+           var userid = document.getElementById('namTxt').value;
+   	    var imagefilename = userid + '_'+Number(new Date()) + ".jpg";
     	     options.fileName = imagefilename;
             options.mimeType = "image/jpg";
             var params = new Object();

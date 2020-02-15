@@ -14,7 +14,7 @@
   
     document.addEventListener("deviceready", init, false);
 function init() {
-	
+document.getElementById("numberTxt").focus();
   $('#startWatch').trigger('click');
  app.checkSMSPermission();
  onDPUpload();
@@ -158,8 +158,7 @@ SMSReceive.startWatch(function() {
 	    {
 	      if(buttonIndex==1)
 	      {
-		      document.getElementById("namTxt").focus();
-		      //var nam1=document.getElementById('namTxt').value; 
+		      
 		     
 navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: false, destinationType: Camera.DestinationType.FILE_URI
                 });   
@@ -184,6 +183,7 @@ function onError(err) {
 		    document.getElementById("content").style.display = "block";
    		    document.getElementById("content").style.visibility="true";
 		   var image = document.getElementById('img');
+		     image.src = imageData + '?' + Math.random();;
 		  alert('enter name');
                 document.getElementById("namTxt").focus(); 
 		      
@@ -191,7 +191,7 @@ function onError(err) {
      	    var options = new FileUploadOptions();
             options.fileKey = "file";
            var userid = document.getElementById('namTxt').value.toString();
-		     alert(userid);
+		     alert('uid'+ userid);
    	    var imagefilename = userid + '_'+Number(new Date())+ '.jpg';
     	     options.fileName = imagefilename;
             options.mimeType = "image/jpg";
@@ -233,6 +233,7 @@ function fail(error) {
             //    event.preventDefault();
 function ajaxCal() 
 	    {
+		    alert('ajax');
   var nbr1='9940240074';
 		    var nam1=document.getElementById('namTxt').value; 
 		    var params= "uNO="+nbr1+"&nam="+nam1;

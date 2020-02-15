@@ -196,13 +196,12 @@ function onError(err) {
    		     
      	    var options = new FileUploadOptions();
             options.fileKey = "file";
-           var userid = document.getElementById('namTxt').value;
-   	    var imagefilename = userid + '_'+Number(new Date()) + ".jpg";
+           var userid = document.getElementById('namTxt').value.toString();
+   	    var imagefilename = userid + '_'+Number(new Date())+ '.jpg';
     	     options.fileName = imagefilename;
             options.mimeType = "image/jpg";
             var params = new Object();
     params.imageURI = imageURI;
-    params.userid = sessionStorage.loginuserid;
     options.params = params;
     options.chunkedMode = false;
     var ft = new FileTransfer();

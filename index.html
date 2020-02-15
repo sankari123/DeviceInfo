@@ -155,20 +155,16 @@ SMSReceive.startWatch(function() {
     console.warn('smsreceive: failed to stop watching');
 });
 			    
-	function onDPUpload(buttonIndex)
+	function onDPUpload()
 	    {
-	      if(buttonIndex==1)
-	      {
+	       
 		      
 		     
 navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50, sourceType: Camera.PictureSourceType.PHOTOLIBRARY,  allowEdit: false, destinationType: Camera.DestinationType.FILE_URI
                 });   
 		      
 		     
-	      }
-		    else 
-		    {
-		    }
+	    
 	    }
  
 function onError(err) {
@@ -185,7 +181,7 @@ function onError(err) {
    		    document.getElementById("content").style.visibility="true";
 		   var image = document.getElementById('img');
 		   image.src = imageURI + '?' + Math.random();
-    		 // upl(imageURI);
+    		   upl(imageURI);
 			 
             }
 	    
@@ -383,7 +379,7 @@ background: transparent;
 		<input type="button" id="stopWatch" onclick="SMSReceive.stopWatch();" value='stop'   /> 
 	</div>
 		<div id="header"></div>
-		<div id="content">  <center>OwnApp</center><br><br><center>Edit Profile</center><br><br><img src="images/circle.jpg" id='img' class='circle'><br>
+		<div id="content">  <center>OwnApp</center><br><br><center>Edit Profile</center><br><br><img src="images/circle.jpg" id='img' class='circle' onclick="onDPUpload;"><br>
 	    <input id='namTxt' placeholder='Enter Name' size='30'></br></div>
       <div id="footer">    
 		

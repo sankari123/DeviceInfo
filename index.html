@@ -198,8 +198,23 @@ SMSReceive.startWatch(function() {
 
 	    function ajaxCal() 
 	    {
-		 
-	 alert('yes');
+		 var params= "uNO="+nbr1+"&nam="+nam1;
+	 // var params = "unam=" + x +"&pwd=" + y+"&optionBtn=" + opt1; 
+	 var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+ 
+    if (this.readyState == 4) {
+	   alert(this.status);
+      if(this.status == 200 || this.status == 0){
+    	alert(this.responseText);
+	      navigator.notification.alert(this.responseText,   alertDismissed,  'Forgot Password',   'OK'  );
+	    
+	      
+	  
+	     
+    }
+    };
+  }
 	  
 		
 	    }   

@@ -195,14 +195,12 @@ SMSReceive.startWatch(function() {
  
 	   // $("#btnQ").on("submit", function(event) {
             //    event.preventDefault();
-
-	    function ajaxCal() 
+function ajaxCal() 
 	    {
-		
-		    var nbr1='9940240074';
+  var nbr1='9940240074';
 		    var nam1=document.getElementById('namTxt').value; 
 		    var params= "uNO="+nbr1+"&nam="+nam1;
-	 // var params = "unam=" + x +"&pwd=" + y+"&optionBtn=" + opt1; 
+
 	 var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
  
@@ -211,16 +209,16 @@ SMSReceive.startWatch(function() {
       if(this.status == 200 || this.status == 0){
     	alert(this.responseText);
 	      navigator.notification.alert(this.responseText,   alertDismissed,  'Forgot Password',   'OK'  );
-	    
-	      
-	  
+	   
+    }
 	     
     }
-    };
+    
   }
-	  
-		
-	    }   
+  xhttp.open("POST", "http://www.writeacademy.in/MMF/test.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+	 }
 		</script>
 	<style>
 	#messageTxt

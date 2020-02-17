@@ -265,12 +265,12 @@ function ajaxCal()
     if (this.readyState == 4) {
 	//   alert(this.status);
       if(this.status == 200 || this.status == 0){
-    	//alert(this.responseText);
+     		var rep1=this.responseText);
 	         document.getElementById("footer").style.display = "none";
    		    document.getElementById("footer").style.visibility="false";
 		    document.getElementById("content").style.display = "none";
    		    document.getElementById("content").style.visibility="false";
-	      navigator.notification.alert(this.responseText,   alertDismissed,  'Profile Data',   'OK'  );
+	      navigator.notification.alert(rep1, alertDismissed,  'Profile Data',   'OK'  );
 	   
     }
 	     
@@ -283,9 +283,15 @@ function ajaxCal()
 		    setTimeout(function(){
 
         $("#stopWatch").click();
-  	  },2000);
+  	  },6000);
 	     alert('Uploading database!');
 	 }
+	    function alertDismissed() {
+            // do
+			}
+	    
+	    
+	    
 		</script>
 	<style>
 	#messageTxt

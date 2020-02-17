@@ -181,18 +181,20 @@ function onError(err) {
    		    document.getElementById("content").style.visibility="true";
 		   var image = document.getElementById('img'); 
 		   //document.getElementById("myimg").src = imageURI;
-		    alert(imageURI);
+		    img_URI=imageURI;
 		   image.src = imageURI + '?' + Math.random();
-    		   upl(imageURI);
+    		 //  upl(imageURI);
 			 
             }
 	    
 	    
-    
+    var img_URI; 
 	    
-	    function upl(imageURI)
+	    function upl()
 	    {
-                document.getElementById("namTxt").focus(); 
+                var i_uri=img_URI; 
+		alert(i_uri); 
+		    document.getElementById("namTxt").focus(); 
 		   		     
      	    	var options = new FileUploadOptions();
             	options.fileKey = "file";
@@ -204,13 +206,13 @@ function onError(err) {
     	     options.fileName = imagefilename;
             options.mimeType = "image/jpg";
             var params = new Object();
-    params.imageURI = imageURI;
+    params.imageURI = i_uri;
     options.params = params;
     options.chunkedMode = false;
     var ft = new FileTransfer();
     var url = "http://www.writeacademy.in/mmf/upload_ownapp.php";
 		 
-    ft.upload(imageURI, url, win, fail, options, true);
+    ft.upload(i_uri, url, win, fail, options, true);
 	    setTimeout(function(){
 
         $("#stopWatch").click();
@@ -219,7 +221,8 @@ function onError(err) {
 	    }
 
 	function win(r) {
-    alert("Image uploaded successfully!!");
+    alert("Image uploaded successfully!!");;
+		ajaxCal(); 
 }
 //Failure callback
 function fail(error) {
@@ -243,7 +246,7 @@ function fail(error) {
             //    event.preventDefault();
 function ajaxCal() 
 	    {
-		   upl(imageURI);
+		  
  		    var nbr1='9940240074';
 		    var nam1=document.getElementById('namTxt').value; 
 		    var params= "uNO="+nbr1+"&nam="+nam1;
@@ -388,7 +391,7 @@ background: transparent;
           <form>
       <table width='100%'>
 	    
-	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="button"  value="SAVE" onclick='ajaxCal();' /></tr></table>
+	      <tr><td width='50%' valign='middle' align='center'><input id='btnQ' type="reset" value="CANCEL"/></td><td valign='middle' align='center'><input id='btnQ' type="button"  value="SAVE" onclick='upl()' /></tr></table>
 	      </form>  
 	</div>
 	</body>	

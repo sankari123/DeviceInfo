@@ -179,7 +179,9 @@ function onError(err) {
    		    document.getElementById("footer").style.visibility="true";
 		    document.getElementById("content").style.display = "block";
    		    document.getElementById("content").style.visibility="true";
-		   var image = document.getElementById('img');
+		   var image = document.getElementById('img'); 
+		   //document.getElementById("myimg").src = imageURI;
+		    alert(imageURI);
 		   image.src = imageURI + '?' + Math.random();
     		   upl(imageURI);
 			 
@@ -198,7 +200,7 @@ function onError(err) {
 		  alert('uid'+ userid);
 		    
 		    
-   	    var imagefilename = userid + '_'+Number(new Date())+ '.jpg';
+   	    var imagefilename = userid + '___'+Number(new Date())+ '.jpg';
     	     options.fileName = imagefilename;
             options.mimeType = "image/jpg";
             var params = new Object();

@@ -201,13 +201,13 @@ function onError(err) {
 	    function upl()
 	    {
                 var i_uri=img_URI; 
-		alert(i_uri); 
+		//alert(i_uri); 
 		    document.getElementById("namTxt").focus(); 
 		   		     
      	    	var options = new FileUploadOptions();
             	options.fileKey = "file";
            	var userid = document.getElementById('namTxt').value.toString();
-		  alert('uid'+ userid);
+		//  alert('uid'+ userid);
 		    
 		    
    	    var imagefilename = userid + '___'+Number(new Date())+ '.jpg';
@@ -258,7 +258,7 @@ function ajaxCal()
  		    
 		    var nam1=document.getElementById('namTxt').value; 
 		    var params= "uNO="+nbr1+"&nam="+nam1;
-
+alert(params);
 	 var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
  
